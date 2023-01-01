@@ -1,5 +1,5 @@
 import React from "react";
-import nationalEmblem from "../../../public/Pictures/nationalEmblem.png"
+import nationalEmblem from "./../../Pictures/nationalEmblem.png";
 const Header = () => {
   return (
     <header>
