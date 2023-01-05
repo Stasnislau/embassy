@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-container-left">
-          <span className="follow-text"> Follow us on social media: </span> 
+          <span className="follow-text"> Follow us on: </span>
           <div className="footer-logos-container">
             <div className="footer-container-logo">
               <a href="https://www.twitter.com/">
@@ -39,30 +39,56 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="footer-container-right-flag">
-          <img src={flag} alt="National Flag" className="flag" />
-          <div className="footer-container-right-text">
-            <p className="copyright-text">
-              Copyright© 2023 The government of Veyshnoria. All rights reserved.
-            </p>
+        <div className="footer-container-center">
+          <div className="footer-container-flag">
+            <img src={flag} alt="National Flag" className="flag" />
           </div>
         </div>
         <div className="footer-container-right">
           <div className="footer-container-right-links">
-            <a className="footer-link" href="https://en.wikipedia.org/wiki/Veyshnoria">
+            <a
+              className="footer-link"
+              href="https://en.wikipedia.org/wiki/Veyshnoria"
+            >
               About Veyshnoria
             </a>
-            <a className="footer-link" href="https://en.wikipedia.org/wiki/Veyshnoria">Contact Us</a>
-            <a className="footer-link" href="https://en.wikipedia.org/wiki/Veyshnoria">
+            <a
+              className="footer-link"
+              href="https://en.wikipedia.org/wiki/Veyshnoria"
+            >
+              Contact Us
+            </a>
+            <a
+              className="footer-link"
+              href="https://en.wikipedia.org/wiki/Veyshnoria"
+            >
               Privacy Policy
             </a>
-            <a className="footer-link" href="https://en.wikipedia.org/wiki/Veyshnoria">Terms of Use</a>
-            <a className="footer-link" href="https://en.wikipedia.org/wiki/Veyshnoria"> Legal basis</a>
-            <a className="footer-link" href="https://en.wikipedia.org/wiki/Veyshnoria">FAQ</a>
-
+            <a
+              className="footer-link"
+              href="https://en.wikipedia.org/wiki/Veyshnoria"
+            >
+              Terms of Use
+            </a>
+            <a
+              className="footer-link"
+              href="https://en.wikipedia.org/wiki/Veyshnoria"
+            >
+              {" "}
+              Legal basis
+            </a>
+            <a
+              className="footer-link"
+              href="https://en.wikipedia.org/wiki/Veyshnoria"
+            >
+              FAQ
+            </a>
           </div>
         </div>
       </div>
+      <p className="copyright-text">
+        Copyright© 2023 The government of Veyshnoria. All rights reserved.
+      </p>
     </footer>
   );
 };
