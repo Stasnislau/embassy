@@ -35,7 +35,7 @@
 .buttons-container
 {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   gap: 10px;
   justify-content: space-between;
   height: 50%;
