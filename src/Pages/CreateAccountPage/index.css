@@ -7,7 +7,8 @@
 }
 .create-account-form-container {
   display: flex;
-  width: 100%;
+  margin-top: 30px;
+  width: 50%;
   height: 100%;
   flex-direction: column;
   align-items: center;

@@ -26,21 +26,6 @@ const CreateAccount = () => {
       setPasswordsMatch(false);
     }
   };
-  // const validate = (values: values) => {
-  //   const errors = {};
-  //   if (!values.name) {
-  //     formik.errors.name = "Required";
-  //   }
-  //   if (!values.surname) {
-  //     formik.errors.surname = "Required";
-  //   }
-  //   if (!values.email) {
-  //     formik.errors.email = "Required";
-  //   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-  //     formik.errors.email = "Invalid email address";
-  //   }
-  //   return errors;
-  // };
   const validationSchema = Yup.object({
     name: Yup.string().required('Required'),
     surname: Yup.string().required('Required'),
@@ -59,6 +44,7 @@ const CreateAccount = () => {
                 name="name"
                 type="text"
                 className="input-field"
+                placeholder="Enter your name"
               />
               <ErrorMessage name="name"/>
             </div>
@@ -69,6 +55,7 @@ const CreateAccount = () => {
                 name="surname"
                 type="text"
                 className="input-field"
+                placeholder="Enter your surname"
               />
               <ErrorMessage name="surname"/>
             </div>
@@ -79,6 +66,7 @@ const CreateAccount = () => {
                 name="email"
                 type="email"
                 className="input-field"
+                placeholder="Enter your email"
               />
             </div>
             <ErrorMessage name="email"/>
@@ -89,6 +77,7 @@ const CreateAccount = () => {
                 name="password"
                 type="password"
                 className="input-field"
+                placeholder="Enter your password"
               />
             </div>
             <div className="form-control">
@@ -98,6 +87,7 @@ const CreateAccount = () => {
                 name="confirmPassword"
                 type="password"
                 className="input-field"
+                placeholder="Confirm your password"
               />
             </div>
             <div className="buttons-container">
