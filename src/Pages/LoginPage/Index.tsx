@@ -79,7 +79,7 @@ const LoginPage = () => {
           <hr />
           <div className="links-container">
             <a href="https://www.google.com/">Forgot password?</a>
-            <a href="https://www.google.com/">Create an account</a>
+            <a href="/create-account">Create account</a>
           </div>
         </form>
       </div>

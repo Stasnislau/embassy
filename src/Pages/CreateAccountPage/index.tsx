@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from 'yup'
+import * as Yup from "yup";
 
 interface values {
   name: string;
@@ -27,15 +27,19 @@ const CreateAccount = () => {
     }
   };
   const validationSchema = Yup.object({
-    name: Yup.string().required('Required'),
-    surname: Yup.string().required('Required'),
-    email: Yup.string().email('Invalid email address').required('Required'),
-  }) 
+    name: Yup.string().required("Required"),
+    surname: Yup.string().required("Required"),
+    email: Yup.string().email("Invalid email address").required("Required"),
+  });
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   return (
     <div className="create-account-container">
       <div className="create-account-form-container">
-        <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          validationSchema={validationSchema}
+        >
           <Form>
             <div className="form-control">
               <label htmlFor="name">Name</label>
@@ -46,7 +50,7 @@ const CreateAccount = () => {
                 className="input-field"
                 placeholder="Enter your name"
               />
-              <ErrorMessage name="name"/>
+              <ErrorMessage name="name" />
             </div>
             <div className="form-control">
               <label htmlFor="surname">Surname</label>
@@ -57,7 +61,7 @@ const CreateAccount = () => {
                 className="input-field"
                 placeholder="Enter your surname"
               />
-              <ErrorMessage name="surname"/>
+              <ErrorMessage name="surname" />
             </div>
             <div className="form-control">
               <label htmlFor="email">Email</label>
@@ -68,8 +72,9 @@ const CreateAccount = () => {
                 className="input-field"
                 placeholder="Enter your email"
               />
+              <ErrorMessage name="email" />
             </div>
-            <ErrorMessage name="email"/>
+
             <div className="form-control">
               <label htmlFor="password">Password</label>
               <Field
@@ -94,16 +99,21 @@ const CreateAccount = () => {
               <button className="submit-button" type="submit">
                 Sign Up
               </button>
-              <button className="back-button" type="button">
+              <button className="back-button" type="button"
+              onClick={() => {
+                window.location.href = "/login";
+              } 
+              
+              }>
                 Back
               </button>
             </div>
           </Form>
         </Formik>
+        {passwordsMatch ? null : (
+          <div className="error-text">Passwords do not match</div>
+        )}
       </div>
-      {passwordsMatch ? null : (
-        <div className="error-text">Passwords do not match</div>
-      )}
     </div>
   );
 };
