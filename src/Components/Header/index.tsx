@@ -5,7 +5,7 @@ import facebookLogo from "./../../Pictures/facebook.png";
 import instagramLogo from "./../../Pictures/instagram.png";
 import youtubeLogo from "./../../Pictures/youtube.png";
 import infoLogo from "./../../Pictures/info.png";
-import "./index.css";
+import "./index.scss";
 const Header = () => {
   return (
     <header>

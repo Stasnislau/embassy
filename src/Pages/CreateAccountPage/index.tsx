@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import "./index.scss";
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import TextError from "../../Components/TextError";

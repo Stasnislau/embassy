@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import "./index.scss";
 import twitterLogo from "./../../Pictures/twitter.png";
 import facebookLogo from "./../../Pictures/facebook.png";
 import instagramLogo from "./../../Pictures/instagram.png";

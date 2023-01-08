@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import "./index.scss";
 const TextError = (props: any) => {
   return <div className="error">{props.children}</div>;
 };

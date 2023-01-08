@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import "./index.css";
+import "./index.scss";
 import React from "react";
 
 interface values {
@@ -78,7 +78,7 @@ const LoginPage = () => {
           </div>
           <hr />
           <div className="links-container">
-            <a href="https://www.google.com/">Forgot password?</a>
+            <a href="https://natribu.org/">Forgot password?</a>
             <a href="/create-account">Create account</a>
           </div>
         </form>
