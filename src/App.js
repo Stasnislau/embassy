@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Footer from "../src/Components/Footer";
 import CreateAccountPage from "../src/Pages/CreateAccountPage";
+import ForgotPasswordPage from "../src/Pages/ForgotPasswordPage";
 
 // import Header from "../src/Components/Header";
 function App() {
@@ -23,6 +24,11 @@ function App() {
               exact
               path="/create-account"
               element={<CreateAccountPage />}
+            ></Route>
+            <Route
+              exact
+              path="/forgot-password"
+              element={<ForgotPasswordPage />}
             ></Route>
             <Route path="*" element={<Navigate to="/login" />}></Route>
           </Routes>

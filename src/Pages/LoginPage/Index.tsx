@@ -78,7 +78,7 @@ const LoginPage = () => {
           </div>
           <hr />
           <div className="links-container">
-            <a href="https://natribu.org/">Forgot password?</a>
+            <a href="/forgot-password">Forgot password?</a>
             <a href="/create-account">Create account</a>
           </div>
         </form>

@@ -23,7 +23,7 @@ const CreateAccount = () => {
   const onSubmit = (values: values) => {
     if (values.password === values.confirmPassword) {
       setPasswordsMatch(0);
-      // TODO: Add type and add functionality to this function
+      // TODO: Add functionality to this function
     } else {
       setPasswordsMatch(1);
     }
