@@ -87,21 +87,6 @@
     align-items: center;
     height: 50%;
   }
-  hr {
-    padding-left: 10px;
-    width: 100%;
-  }
-  a {
-    text-decoration: none;
-    color: #3f51b5;
-    font-size: 16px;
-    font-weight: 600;
-  }
-  .links-container {
-    display: flex;
-    flex-direction: block;
-    justify-content: space-between;
-  }
   .password-error-message {
     position: relative;
     color: red;
