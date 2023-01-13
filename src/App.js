@@ -10,6 +10,7 @@ import {
 import Footer from "../src/Components/Footer";
 import CreateAccountPage from "../src/Pages/CreateAccountPage";
 import ForgotPasswordPage from "../src/Pages/ForgotPasswordPage";
+import Dashboard from "../src/Pages/Dashboard";
 
 // import Header from "../src/Components/Header";
 function App() {
@@ -29,6 +30,11 @@ function App() {
               exact
               path="/forgot-password"
               element={<ForgotPasswordPage />}
+            ></Route>
+            <Route
+              exact
+              path="/Dashboard"
+              element={Dashboard}
             ></Route>
             <Route path="*" element={<Navigate to="/login" />}></Route>
           </Routes>
