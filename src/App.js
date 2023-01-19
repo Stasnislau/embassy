@@ -1,16 +1,18 @@
-import React from "react";
 import "./App.css";
-import LoginPage from "../src/Pages/LoginPage";
+
 import {
+  Navigate,
+  Route,
   BrowserRouter as Router,
   Routes,
-  Route,
-  Navigate,
 } from "react-router-dom";
-import Footer from "../src/Components/Footer";
+
 import CreateAccountPage from "../src/Pages/CreateAccountPage";
-import ForgotPasswordPage from "../src/Pages/ForgotPasswordPage";
 import Dashboard from "../src/Pages/Dashboard";
+import Footer from "../src/Components/Footer";
+import ForgotPasswordPage from "../src/Pages/ForgotPasswordPage";
+import LoginPage from "../src/Pages/LoginPage";
+import React from "react";
 
 // import Header from "../src/Components/Header";
 function App() {
@@ -33,8 +35,8 @@ function App() {
             ></Route>
             <Route
               exact
-              path="/Dashboard"
-              element={Dashboard}
+              path="/dashboard"
+              element={<Dashboard/>}
             ></Route>
             <Route path="*" element={<Navigate to="/login" />}></Route>
           </Routes>

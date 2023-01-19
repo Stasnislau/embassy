@@ -1,0 +1,27 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  .dashboard-boxes-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-top: 30px;
+  }
+  .dashboard-box {
+    width: 30%;
+    height: 150px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .dashboard-box:hover {
+    background-color: #eee;
+    transition: 0.2s;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  }
+}
