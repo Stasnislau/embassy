@@ -2,9 +2,9 @@ import "./index.scss";
 
 import React, { useState } from "react";
 
-import AccountIcon from "../../../../Pictures/accountIcon.png";
-import DropdownDown from "../../../../Pictures/dropdownDown.png";
-import DropdownUp from "../../../../Pictures/dropdownUp.png";
+import AccountIcon from "../../../../Pictures/accountIcon.svg";
+import DropdownDown from "../../../../Pictures/arrowDown.svg";
+import DropdownUp from "../../../../Pictures/arrowUp.svg";
 
 const DropdownAccountMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,17 +18,17 @@ const DropdownAccountMenu = () => {
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (
-            <img src={DropdownUp} alt="Dropdown Up" />
+            <img src={DropdownUp} className="arrow" alt="Dropdown Up" />
           ) : (
-            <img src={DropdownDown} alt="Dropdown Down" />
+            <img src={DropdownDown} className="arrow" alt="Dropdown Down" />
           )}
         </button>
       </div>
       {isOpen && (
         <ul className="dropdown-account-menu">
-          <li>Option 1</li>
-          <li>Option 2</li>
-          <li>Option 3</li>
+          <li className="dropdown-account-menu-item">Option 1</li>
+          <li className="dropdown-account-menu-item">Option 2</li>
+          <li className="dropdown-account-menu-item">Option 3</li>
         </ul>
       )}
     </div>

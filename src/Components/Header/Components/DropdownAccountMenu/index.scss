@@ -1,6 +1,47 @@
-.dropdown-account-button-container{
-    height: 10vh;
+.dropdown-account-button-container {
+  height: 40px;
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(99, 99, 244);
+  border: 1px solid green;
+    border-radius: 50%;
+  .dropdown-account-button-container:hover {
+    background-color: rgb(99, 99, 244);
+  }
+  .dropdown-account-button {
+    background-color: inherit;
+    border: none;
+  }
+  .arrow {
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
-    border: 1px solid green;
+    justify-content: center;
+  }
+  .dropdown-account-menu {
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    width: 20vw;
+    height: 40vh;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    .dropdown-account-menu-item {
+      width: 100%;
+      height: 10vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid black;
+      &:hover {
+        background-color: #f2f2f2;
+      }
+    }
+  }
 }
