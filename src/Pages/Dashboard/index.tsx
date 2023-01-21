@@ -1,10 +1,12 @@
 import "./index.scss";
 
+import Header from "../../Components/Header";
 import React from "react";
 
 const Dashboard = () => {
   return (
     <div className="dashboard-container">
+      <Header />
       <div className="dashboard-boxes-container">
         <div className="dashboard-box" onClick={() => handleClick1()}>
           <p>Action 1</p>

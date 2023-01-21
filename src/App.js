@@ -13,13 +13,10 @@ import Footer from "../src/Components/Footer";
 import ForgotPasswordPage from "../src/Pages/ForgotPasswordPage";
 import LoginPage from "../src/Pages/LoginPage";
 import React from "react";
-
-// import Header from "../src/Components/Header";
 function App() {
   return (
     <Router>
       <div className="app">
-        {/* <Header/> */}
         <div className="app-body">
           <Routes>
             <Route exact path="/login" element={<LoginPage />}></Route>
