@@ -1,0 +1,56 @@
+.residence-permit-container{
+    height: 40px;
+  width: 80px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #a2d4ed;
+  border-radius: 5px;
+  .residence-permit-button-container {
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+  }
+  .residence-permit-button {
+    background-color: inherit;
+    height: 80%;
+    border: none;
+  }
+  .arrow {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s linear;
+  }
+    .arrow-up {
+        scale: -1;
+    }
+    .residence-permit-menu {
+      top: 25px;
+      position: absolute;
+      z-index: 1;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 120px;
+      height: 10vh;
+      list-style: none;
+      padding: 0;
+  
+      .residence-permit-menu-item {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          background-color: #f2f2f2;
+        }
+      }
+    }
+}

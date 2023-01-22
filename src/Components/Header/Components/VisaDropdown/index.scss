@@ -1,29 +1,18 @@
-.dropdown-account-button-container {
+.visa-menu-container {
   height: 40px;
   width: 80px;
   display: flex;
   justify-content: space-around;
   background-color: #a2d4ed;
   border-radius: 5px;
-  .trigger-button-container {
+  .visa-button-container {
     width: 80px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: right;
   }
-  .account-logo {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease-in-out;
-  }
-  .dropdown-account-button-container:hover {
-    background-color: rgb(99, 99, 244);
-  }
-  .dropdown-account-button {
+  .visa-menu-button {
     background-color: inherit;
     height: 80%;
     border: none;
@@ -39,7 +28,7 @@
   .arrow-up {
     scale: -1;
   }
-  .dropdown-account-menu {
+  .visa-menu {
     top: 25px;
     position: absolute;
     z-index: 1;
@@ -53,7 +42,7 @@
     list-style: none;
     padding: 0;
 
-    .dropdown-account-menu-item {
+    .visa-menu-item {
       width: 100%;
       height: fit-content;
       display: flex;

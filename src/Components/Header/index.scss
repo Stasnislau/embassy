@@ -1,11 +1,22 @@
 .header{
-    background-color: rgb(253, 253, 253);
-    height: 80px;
     width: 100%;
-    padding: 10px 100px;
-    color: #fff;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
+    height: 80px;
+    .header-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        padding: 10px 100px;
+        .left-container{
+            display: flex;
+            align-items: center;
+        }
+        .right-container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
 }
+

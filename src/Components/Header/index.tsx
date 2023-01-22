@@ -2,6 +2,8 @@ import "./index.scss";
 
 import DropdownAccountMenu from "./Components/DropdownAccountMenu";
 import React from "react";
+import ResidencePermitDropdown from "./Components/ResidancePermitDropdown";
+import VisaDropdownMenu from "./Components/VisaDropdown";
 import vejshnoriaLogo from "../../Pictures/vejshnoriaLogo.svg";
 
 const Header = () => {
@@ -10,11 +12,11 @@ const Header = () => {
       <div className="header-container">
         <div className="left-container">
           {/* <img src={vejshnoriaLogo} className="logo" alt="Vejshnoria Logo" /> */}
-          </div>
+        </div>
         <div className="right-container">
-          <div className="quick-access-menus-container">
-              <DropdownAccountMenu />
-          </div>
+          <DropdownAccountMenu />
+          <ResidencePermitDropdown />
+          <VisaDropdownMenu />
         </div>
       </div>
     </header>
