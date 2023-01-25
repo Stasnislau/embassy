@@ -7,26 +7,28 @@ import { useState } from "react";
 const VisaDropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="visa-menu-container">
+    <div
+      className="visa-menu-container"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
       <div className="visa-menu-button-container">
-        <button
-          className="visa-menu-button"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <div className="visa-menu-button">
+          Visas
           {isOpen ? (
-            <img
-              src={DropdownDown}
-              className="arrow arrow-down"
-              alt="Dropdown Down"
-            />
-          ) : (
             <img
               src={DropdownDown}
               className="arrow arrow-up"
               alt="Dropdown Up"
             />
+          ) : (
+            <img
+              src={DropdownDown}
+              className="arrow arrow-down"
+              alt="Dropdown Down"
+            />
           )}
-        </button>
+        </div>
       </div>
       {isOpen && (
         <div className="visa-dropdown-menu">

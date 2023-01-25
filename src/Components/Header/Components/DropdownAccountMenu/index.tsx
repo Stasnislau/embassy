@@ -9,13 +9,14 @@ const DropdownAccountMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="dropdown-account-button-container">
+    <div
+      className="dropdown-account-button-container"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
       <div className="trigger-button-container">
         <img src={AccountIcon} className="account-logo" alt="Account Logo" />
-        <button
-          className="dropdown-account-button"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <div className="dropdown-account-button">
           {isOpen ? (
             <img
               src={DropdownDown}
@@ -29,7 +30,7 @@ const DropdownAccountMenu = () => {
               alt="Dropdown Down"
             />
           )}
-        </button>
+        </div>
 
         {isOpen && (
           <ul className="dropdown-account-menu">

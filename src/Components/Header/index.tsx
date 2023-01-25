@@ -12,6 +12,7 @@ const Header = () => {
       <div className="header-container">
         <div className="left-container">
           <img src={MinistryLogo} className="ministry-logo" alt="Ministry Logo" />
+          <b className="ministry-text">Ministry of foreign affairs of Veyshnoria</b>
         </div>
         <div className="right-container">
           <DropdownAccountMenu />

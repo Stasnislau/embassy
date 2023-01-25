@@ -7,26 +7,30 @@ import { useState } from "react";
 const ResidencePermitDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="residence-permit-container">
+    <div
+      className="residence-permit-container"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
       <div className="residence-permit-button-container">
-        <button
+        <div
           className="residence-permit-button"
-          onClick={() => setIsOpen(!isOpen)}
         >
+          <b>Residence permits</b>
           {isOpen ? (
             <img
               src={DropdownDown}
-              className="arrow arrow-down"
+              className="arrow arrow-up"
               alt="Dropdown Down"
             />
           ) : (
             <img
               src={DropdownDown}
-              className="arrow arrow-up"
-              alt="Dropdown Up"
+              className="arrow arrow-down"
+              alt="Dropdown down"
             />
           )}
-        </button>
+        </div>
       </div>
       {isOpen && (
         <div className="residence-permit-menu">

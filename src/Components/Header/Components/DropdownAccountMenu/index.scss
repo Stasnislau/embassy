@@ -6,11 +6,13 @@
   background-color: #a2d4ed;
   border-radius: 5px;
   .trigger-button-container {
+    position: relative;
     width: 80px;
     height: 40px;
     display: flex;
-    align-items: center;
-    justify-content: right;
+    align-items: baseline;
+    text-align: center;
+    justify-content: space-around;
   }
   .account-logo {
     width: 40px;
@@ -26,7 +28,6 @@
   .dropdown-account-button {
     background-color: inherit;
     height: 80%;
-    border: none;
   }
   .arrow {
     width: 20px;
@@ -40,7 +41,10 @@
     scale: -1;
   }
   .dropdown-account-menu {
-    top: 25px;
+    top: 100%;
+    right: 0;
+    margin: 0;
+    padding: 0;
     position: absolute;
     z-index: 1;
     background-color: white;
@@ -49,9 +53,7 @@
     align-items: center;
     justify-content: space-evenly;
     width: 120px;
-    height: 10vh;
     list-style: none;
-    padding: 0;
 
     .dropdown-account-menu-item {
       width: 100%;
