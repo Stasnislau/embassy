@@ -2,9 +2,11 @@
   height: 40px;
   position: relative;
   width: max-content;
+  font-size: 18px;
+  font-weight: 600;
   display: flex;
   justify-content: space-around;
-  background-color: #a2d4ed;
+  background-color: #dff1fa;
   border-radius: 5px;
   .visa-menu-button-container {
     position: relative;
@@ -14,6 +16,11 @@
     display: flex;
     align-items: center;
     justify-content: right;
+    transition: all 0.3s linear;
+  }
+  .visa-menu-button-container:hover {
+    background-color: #caf0ff;
+    transition: all 0.3s linear;
   }
   .visa-menu-button {
     background-color: inherit;
@@ -22,6 +29,7 @@
     align-items: center;
   }
   .arrow {
+    align-items: flex-end;
     width: 20px;
     height: 20px;
     display: flex;

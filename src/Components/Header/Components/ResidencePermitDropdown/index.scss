@@ -3,8 +3,10 @@
   position: relative;
   width: max-content;
   display: flex;
+  font-size: 18px;
+  font-weight: 600;
   justify-content: space-around;
-  background-color: #a2d4ed;
+  background-color: #dff1fa;
   border-radius: 5px;
   .residence-permit-button-container {
     position: relative;
@@ -14,6 +16,10 @@
     display: flex;
     align-items: center;
     justify-content: right;
+  }
+  .residence-permit-button-container:hover {
+    background-color: #caf0ff;
+    transition: all 0.3s linear;
   }
   .residence-permit-button {
     background-color: inherit;
@@ -25,6 +31,7 @@
     width: 20px;
     height: 20px;
     display: flex;
+    align-items: flex-end;
     align-items: center;
     justify-content: center;
     transition: all 0.3s linear;

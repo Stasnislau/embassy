@@ -3,7 +3,7 @@
   width: 80px;
   display: flex;
   justify-content: space-around;
-  background-color: #a2d4ed;
+  background-color: #dff1fa;
   border-radius: 5px;
   .trigger-button-container {
     position: relative;
@@ -13,6 +13,10 @@
     align-items: baseline;
     text-align: center;
     justify-content: space-around;
+  }
+  .trigger-button-container:hover {
+    background-color: #caf0ff;
+    transition: all 0.3s linear;
   }
   .account-logo {
     width: 40px;
@@ -30,6 +34,7 @@
     height: 80%;
   }
   .arrow {
+    align-items: flex-end;
     width: 20px;
     height: 20px;
     display: flex;
