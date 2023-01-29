@@ -2,14 +2,21 @@ import "./index.scss";
 
 import Header from "../../Components/Header";
 import React from "react";
+import VisitCard from "../../Components/EventCards/VisitCard";
 
 const Dashboard = () => {
+  const props = {
+    date: "12/12/2020",
+    time: "12:00",
+    location: "Office",
+    description: "Visit to the office",
+  };
   return (
     <div className="dashboard-container">
       <Header />
       <div className="dashboard-boxes-container">
         <div className="dashboard-box" onClick={() => handleClick1()}>
-          <p>Action 1</p>
+          <VisitCard {...props}/>
         </div>
         <div className="dashboard-box" onClick={() => handleClick2()}>
           <p>Action 2</p>

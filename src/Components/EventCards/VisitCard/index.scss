@@ -1,0 +1,43 @@
+.visit-card {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  h1 {
+    margin-bottom: 20px;
+  }
+  .visit-card-date {
+    font-size: 16px;
+    margin-bottom: 10px;
+
+    css Copy code p {
+      margin: 0;
+    }
+  }
+  .visit-card-location {
+    font-size: 16px;
+    margin-bottom: 10px;
+
+    p {
+      margin: 0;
+    }
+  }
+  .visit-card-description {
+    font-size: 16px;
+    p {
+      margin: 0;
+    }
+  }
+  .visit-card-button {
+    background-color: #4caf50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+}
