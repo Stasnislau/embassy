@@ -15,22 +15,22 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <Header />
       <div className="dashboard-boxes-container">
-        <div className="dashboard-box" onClick={() => handleClick1()}>
+        <div className="dashboard-box">
           <VisitCard {...props}/>
         </div>
-        <div className="dashboard-box" onClick={() => handleClick2()}>
+        <div className="dashboard-box">
           <p>Action 2</p>
         </div>
-        <div className="dashboard-box" onClick={() => handleClick3()}>
+        <div className="dashboard-box">
           <p>Action 3</p>
         </div>
-        <div className="dashboard-box" onClick={() => handleClick4()}>
+        <div className="dashboard-box">
           <p>Action 4</p>
         </div>
-        <div className="dashboard-box" onClick={() => handleClick5()}>
+        <div className="dashboard-box">
           <p>Action 5</p>
         </div>
-        <div className="dashboard-box" onClick={() => handleClick6()}>
+        <div className="dashboard-box">
           <p>Action 6</p>
         </div>
       </div>
@@ -38,23 +38,5 @@ const Dashboard = () => {
   );
 };
 
-const handleClick1 = () => {
-  // Code for Action 1
-};
-const handleClick2 = () => {
-  // Code for Action 2
-};
-const handleClick3 = () => {
-  // Code for Action 3
-};
-const handleClick4 = () => {
-  // Code for Action 4
-};
-const handleClick5 = () => {
-  // Code for Action 5
-};
-const handleClick6 = () => {
-  // Code for Action 6
-};
 
 export default Dashboard;

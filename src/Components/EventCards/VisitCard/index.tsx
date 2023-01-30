@@ -10,20 +10,33 @@ const VisitCard = (props: {
 }) => {
   return (
     <div className="visit-card">
-      <div className="visit-card">
-        <h1> Visit to the office </h1>
+      <h1> Visit to the office </h1>
+      <div className="visit-card-body">
         <div className="visit-card-date">
-          <p> {props.date} </p>
-          <p> {props.time} </p>
+          <p>
+            Date: <b>{props.date}</b>
+          </p>
+          <p>
+            Time: <b>{props.time}</b>{" "}
+          </p>
         </div>
         <div className="visit-card-location">
-          <p> {props.location} </p>
+          <p>
+            Where: <b>{props.location}</b>{" "}
+          </p>
         </div>
         <div className="visit-card-description">
-          <p> {props.description} </p>
+          <p> Description: {props.description} </p>
         </div>
-        <button className="visit-card-button">More info</button>
       </div>
+      <button
+        className="visit-card-button"
+        onClick={() => {
+          console.log("Button clicked");
+        }}
+      >
+        More info
+      </button>
     </div>
   );
 };
