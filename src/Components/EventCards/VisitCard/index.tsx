@@ -2,12 +2,14 @@ import "./index.scss";
 
 import React, { useState } from "react";
 
-const VisitCard = (props: {
+interface VisitCardProps {
   date: string;
   time: string;
   location: string;
   description: string;
-}) => {
+}
+
+const VisitCard = (props: VisitCardProps) => {
   return (
     <div className="visit-card">
       <h1> Visit to the office </h1>
