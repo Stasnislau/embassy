@@ -2,13 +2,16 @@ import "./index.scss";
 
 import React from "react";
 
-const VisaCard = (props: {
-  dateOfSubmission: string;
-  dateOfDecision: string;
-  status: string;
-  description: string;
-  
-}) => {
+interface VisaCardProps {
+  props: {
+    dateOfSubmission: string;
+    dateOfDecision: string;
+    status: string;
+    description: string;
+  };
+}
+
+const VisaCard = ({props}: VisaCardProps) => {
   return (
     <div className="visa-card">
       <h1> Visa </h1>
