@@ -1,19 +1,24 @@
-import { useFormik } from "formik";
 import "./index.scss";
+
 import React from "react";
+import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 
 interface values {
   email: string;
   password: string;
 }
 const LoginPage = () => {
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
   };
+  const handleLogin = () => {
+    navigate("/dashboard");
+  };
   const onSubmit = (values: values) => {
-    // TODO: Add type and add functionality to this function
-    console.log("Form data", values);
+    handleLogin();
   };
   const validate = (values: values) => {
     let errors: Partial<values> = {};
