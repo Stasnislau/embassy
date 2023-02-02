@@ -14,7 +14,7 @@ const VisaDropdownMenu = () => {
     >
       <div className="visa-menu-button-container">
         <div className="visa-menu-button">
-          Visas
+          Visa
           {isOpen ? (
             <img
               src={DropdownDown}

@@ -53,55 +53,77 @@ const Dashboard = () => {
     description: "",
   };
   const maxPages =
-    (visits.length + visa.status ? 1 : 0) % 6 === 0
-      ? (visits.length + visa.status ? 1 : 0) / 6
-      : Math.floor((visits.length + visa.status ? 1 : 0) / 6) + 1;
-  const [currentDisplayed, setCurrentDisplayed] = useState(0);
+    (visits.length + (visa.status ? 1 : 0)) % 6 === 0
+      ? (visits.length + (visa.status ? 1 : 0)) / 6
+      : Math.floor((visits.length + (visa.status ? 1 : 0)) / 6) + 1;
+  const checkEventsNumberOnThePage = () => {
+    if (visa.status) {
+      if (currentPage === 1) {
+        return 0;
+      } else {
+        return 5;
+      }
+    } else {
+      if (currentPage === 1) {
+        return 0;
+      } else {
+        return 6;
+      }
+    }
+  };
 
   return (
     <div className="dashboard-container">
       <Header />
-      <div className="dashboard-boxes-container">
-        {visa.status && currentPage !== 1 ? (
-          <div className="dashboard-box">
-            <VisaCard props={visa} />
-            
-          </div>
-        ) : null}
-        {visits.map((visit, index) => {
-          if (index >= currentPage * 6 && index < (currentPage + 1) * 6) {
-            return (
-              <div className="dashboard-box">
-                <VisitCard props={visit} />
-              </div>
-            );
+      <div className="dashboard-body">
+        <div className="dashboard-boxes-container">
+          {visa.status && currentPage === 1 ? (
+            <div className="dashboard-box">
+              <VisaCard props={visa} />
+            </div>
+          ) : null}
+          {visits
+            .slice(
+              checkEventsNumberOnThePage(),
+              5 + 6 * checkEventsNumberOnThePage()
+            )
+            .map((visit) => {
+              return (
+                <div className="dashboard-box">
+                  <VisitCard props={visit} />
+                </div>
+              );
+            })}
+        </div>
+        <div className="dashboard-pagination">
+          {currentPage > 1 && (
+            <button
+              className="dashboard-pagination-button"
+              onClick={() => {
+                if (currentPage > 1) {
+                  setCurrentPage(currentPage - 1);
+                }
+              }}
+            >
+              Previous
+            </button>
+          )}
+          <p className="dashboard-pagination-text">
+            {currentPage} of {maxPages}
+          </p>
+          {
+            currentPage < maxPages && (<button
+              className="dashboard-pagination-button"
+              onClick={() => {
+                if (currentPage < maxPages) {
+                  setCurrentPage(currentPage + 1);
+                }
+              }}
+            >
+              Next
+            </button>)
           }
-        })}
-      </div>
-      <div className="dashboard-pagination">
-        <button
-          className="dashboard-pagination-button"
-          onClick={() => {
-            if (currentPage > 0) {
-              setCurrentPage(currentPage - 1);
-            }
-          }}
-        >
-          Previous
-        </button>
-        <p className="dashboard-pagination-text">
-          {currentPage + 1} of {maxPages}
-        </p>
-        <button
-          className="dashboard-pagination-button"
-          onClick={() => {
-            if (currentPage < maxPages - 1) {
-              setCurrentPage(currentPage + 1);
-            }
-          }}
-        >
-          Next
-        </button>
+        </div>
       </div>
     </div>
   );

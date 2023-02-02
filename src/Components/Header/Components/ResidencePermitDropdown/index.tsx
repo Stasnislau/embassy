@@ -16,7 +16,7 @@ const ResidencePermitDropdown = () => {
         <div
           className="residence-permit-button"
         >
-          residence permit 
+          Residence permit 
           {isOpen ? (
             <img
               src={DropdownDown}
