@@ -45,6 +45,12 @@ const Dashboard = () => {
       location: "6 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "7 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
   ];
   const visa = {
     dateOfSubmission: "2020-12-12",
@@ -84,8 +90,9 @@ const Dashboard = () => {
           ) : null}
           {visits
             .slice(
-              checkEventsNumberOnThePage(),
-              5 + 6 * checkEventsNumberOnThePage()
+              checkEventsNumberOnThePage() + (visa.status && currentPage === 1 ? 1 : 0),
+              checkEventsNumberOnThePage() + 6 * (currentPage)
+              
             )
             .map((visit) => {
               return (
