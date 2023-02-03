@@ -13,6 +13,8 @@ import Footer from "../src/Components/Footer";
 import ForgotPasswordPage from "../src/Pages/ForgotPasswordPage";
 import LoginPage from "../src/Pages/LoginPage";
 import React from "react";
+import VisaApplication from "../src/Pages/VisaApplication";
+
 function App() {
   return (
     <Router>
@@ -30,10 +32,11 @@ function App() {
               path="/forgot-password"
               element={<ForgotPasswordPage />}
             ></Route>
+            <Route exact path="/dashboard" element={<Dashboard />}></Route>
             <Route
               exact
-              path="/dashboard"
-              element={<Dashboard/>}
+              path="/visa-application"
+              element={<VisaApplication />}
             ></Route>
             <Route path="*" element={<Navigate to="/login" />}></Route>
           </Routes>
