@@ -1,8 +1,12 @@
-import React from "react";
 import "./index.scss";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import TextError from "../../Components/TextError";
+
 import * as Yup from "yup";
+
+import { ErrorMessage, Field, Form, Formik } from "formik";
+
+import React from "react";
+import TextError from "../../Components/TextError";
+import { useNavigate } from "react-router-dom";
 
 const ForgotPassword: React.FC = () => {
   const validationSchema = Yup.object().shape({
@@ -16,7 +20,7 @@ const ForgotPassword: React.FC = () => {
       .required("Confirm password is required")
       .oneOf([Yup.ref("newPassword"), null], "Passwords must match"),
   });
-
+  const navigate = useNavigate();
   const onSubmit = (values: any) => {
     console.log(values);
   };
@@ -105,7 +109,7 @@ const ForgotPassword: React.FC = () => {
                 className="back-button"
                 type="button"
                 onClick={() => {
-                  window.location.href = "/login";
+                  navigate("/login");
                 }}
               >
                 Back

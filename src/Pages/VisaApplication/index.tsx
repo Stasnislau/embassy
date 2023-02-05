@@ -78,6 +78,7 @@ const VisaApplication = () => {
     agreedTerms: Yup.boolean().oneOf([true], "Required"),
   });
   const onSubmit = (values: VisaValues) => {
+    console.log("HUY");
     console.log("Form data", values);
   };
   const navigate = useNavigate();
@@ -327,5 +328,5 @@ const VisaApplication = () => {
     </div>
   );
 };
-
+ // TODO: fix the error message for the checkbox; nothing is submitted when the button is clicked
 export default VisaApplication;
