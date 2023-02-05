@@ -1,9 +1,12 @@
-import React from "react";
 import "./index.scss";
-import { useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import TextError from "../../Components/TextError";
+
 import * as Yup from "yup";
+
+import { ErrorMessage, Field, Form, Formik } from "formik";
+
+import React from "react";
+import TextError from "../../Components/TextError";
+import { useState } from "react";
 
 interface values {
   name: string;
@@ -60,7 +63,7 @@ const CreateAccount = () => {
                     id="name"
                     name="name"
                     type="text"
-                    className="input-field"
+                    className="input-field-small"
                     placeholder="Enter your name"
                   />
                   <ErrorMessage name="name" component={TextError} />
@@ -71,7 +74,7 @@ const CreateAccount = () => {
                     id="surname"
                     name="surname"
                     type="text"
-                    className="input-field"
+                    className="input-field-small"
                     placeholder="Enter your surname"
                   />
                   <ErrorMessage name="surname" component={TextError} />
