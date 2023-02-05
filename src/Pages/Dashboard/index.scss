@@ -41,19 +41,19 @@
     position: relative;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
     font-size: 16px;
     align-items: center;
 
-    .dashboard-pagination-button {
+    .pagination-item{
       position: relative;
-      font-size: 16px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      padding: 10px;
-      border: none;
-      background-color: inherit;
-      color: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #20068a;
+      border-radius: 5px;
       cursor: pointer;
     }
   }
