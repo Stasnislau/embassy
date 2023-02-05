@@ -25,6 +25,9 @@ interface VisaValues {
   visaType: string;
   visaDuration: string;
   visaDate: string;
+  comments: string;
+  agreedFingerprints: boolean;
+  agreedTerms: boolean;
 }
 
 const VisaApplication = () => {
@@ -44,6 +47,9 @@ const VisaApplication = () => {
     visaType: "",
     visaDuration: "",
     visaDate: "",
+    comments: "",
+    agreedFingerprints: false,
+    agreedTerms: false,
   };
   const validationSchema = Yup.object({
     firstName: Yup.string()
@@ -66,9 +72,13 @@ const VisaApplication = () => {
 
     visaType: Yup.string().required("Required"),
     visaDate: Yup.string().required("Required"),
+    visaDuration: Yup.string().required("Required"),
+    
+    agreedFingerprints: Yup.boolean().oneOf([true], "Required"),
+    agreedTerms: Yup.boolean().oneOf([true], "Required"),
   });
   const onSubmit = (values: VisaValues) => {
-    console.log(values);
+    console.log("Form data", values);
   };
   const navigate = useNavigate();
   return (
@@ -259,7 +269,44 @@ const VisaApplication = () => {
                   </select>
                 </div>
               </div>
+              <div className="form-control">
+                <label htmlFor="comments">Additional comments</label>
+                <Field
+                  id="comments"
+                  name="comments"
+                  type="text"
+                  placeholder="Comments"
+                  className="comments-field input-field"
+                />
+                <ErrorMessage name="comments" component={TextError} />
+              </div>
             </div>
+            <div className="checkbox-container">
+              <div className="checkbox-item">
+                <Field
+                  type="checkbox"
+                  name="checkbox-fingerprints"
+                  className="checkbox"
+                />
+                <label htmlFor="checkbox-fingerprints">
+                  I agree to submit my fingerprints to the embassy.
+                </label>
+              </div>
+              <div className="checkbox-item">
+                <Field
+                  type="checkbox"
+                  name="checkbox-conditions"
+                  className="checkbox"
+                />
+                <label htmlFor="checkbox">
+                  I agree to the terms and conditions.
+                </label>
+              </div>
+
+              <ErrorMessage name="checkbox" component={TextError} />
+              
+            </div>
+
             <div className="buttons-container">
               <button type="submit" className="submit-button">
                 Submit
