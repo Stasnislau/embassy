@@ -12,7 +12,7 @@ const VisaDropdownMenu = () => {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <div className="visa-menu-button-container">
+      <div className="visa-menu-button-container dropdown-menu-button">
         <div className="visa-menu-button">
           Visa
           {isOpen ? (

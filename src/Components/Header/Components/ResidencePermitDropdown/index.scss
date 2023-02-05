@@ -6,8 +6,6 @@
   font-size: 18px;
   font-weight: 600;
   justify-content: space-around;
-  background-color: #dff1fa;
-  border-radius: 5px;
   .residence-permit-button-container {
     position: relative;
     width: 100%;
@@ -16,10 +14,6 @@
     display: flex;
     align-items: center;
     justify-content: right;
-  }
-  .residence-permit-button-container:hover {
-    background-color: #caf0ff;
-    transition: all 0.3s linear;
   }
   .residence-permit-button {
     background-color: inherit;

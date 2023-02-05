@@ -10,7 +10,7 @@ const DropdownAccountMenu = () => {
 
   return (
     <div
-      className="dropdown-account-button-container"
+      className="dropdown-account-button-container dropdown-menu-button"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >

@@ -12,7 +12,7 @@ const ResidencePermitDropdown = () => {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <div className="residence-permit-button-container">
+      <div className="residence-permit-button-container dropdown-menu-button">
         <div
           className="residence-permit-button"
         >
