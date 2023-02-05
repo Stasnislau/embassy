@@ -1,79 +1,76 @@
-.visa-application {
+.visa-application-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  min-height: 90vh;
   .visa-application-form-container {
-    h1 {
-      text-align: center;
+    display: flex;
+    margin-top: 30px;
+    width: 50%;
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      height: 100%;
+    }
+    .several-fields-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      gap: 10px;
+    }
+    .form-control {
+      padding: 5px 0;
+      min-height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
     .inputs-container {
-      display: flex;
-      flex-wrap: wrap;
-      .name-surname-container,
-      .phone-email-container,
-      .address-fields-container,
-      .passport-fields-container,
-      .visa-fields-container {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        .form-control {
-          width: 100%;
-          margin-bottom: 20px;
-          label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-          }
-          input,
-          select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            &.first-name-field,
-            &.last-name-field,
-            &.email-field,
-            &.phone-field,
-            &.address-field,
-            &.city-field,
-            &.state-field,
-            &.zip-field,
-            &.country-field,
-            &.passport-number-field,
-            &.passport-expiration-field,
-            &.passport-country-field,
-            &.visa-type-field,
-            &.visa-duration-field,
-            &.visa-date-field {
-              width: calc(50% - 10px);
-            }
-            &:focus {
-              outline: none;
-              border-color: #007bff;
-            }
-          }
-        }
-      }
+      width: 100%;
     }
-    .button-container {
+    .input-field {
+      width: 100%;
+      height: 30px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+    }
+    .buttons-container {
       display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      button[type="submit"] {
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        &:hover {
-          background-color: #0069d9;
-        }
-      }
+      flex-direction: row;
+      gap: 10px;
+      justify-content: space-between;
+      height: fit-content;
+      padding-bottom: 20px;
+    }
+    .submit-button {
+      width: 49%;
+      height: 50px;
+      background-color: #3f51b5;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .cancel-button {
+      width: 49%;
+      height: 50px;
+      background-color: #fff;
+      color: #3f51b5;
+      border: 1px solid #3f51b5;
+      border-radius: 5px;
+      font-size: 16px;
     }
   }
-}
-
-.text-error {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
 }
