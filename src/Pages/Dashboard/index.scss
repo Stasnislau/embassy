@@ -56,5 +56,14 @@
       border-radius: 5px;
       cursor: pointer;
     }
+    .pagination-item:hover{
+      background-color: #20068a;
+      color: #fff;
+      transition: 0.2s;
+    }
+    .active-pagination-item{
+      background-color: #20068a;
+      color: #fff;
+    }
   }
 }

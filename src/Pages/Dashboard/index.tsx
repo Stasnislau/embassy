@@ -208,31 +208,18 @@ const Dashboard = () => {
       : Math.floor((visits.length + (visa.status ? 1 : 0)) / 6) + 1;
   const renderPagination = () => {
     const totalPages = maxPages;
-    const buttonsToDisplay = 5;
     const pagesToDisplay = [];
-    // render +- page to the left and right of the current page and 5 pages in total (if there are more than 5 pages)
-      // if the current page is 1, render 1, 2, 3, 4, and last page (if there are more than 5 pages)
-      // if the current page is last page, render 1, second last page, third last page, fourth last page, and last page (if there are more than 5 pages)
-      // there always needs to be 5 pages rendered (if there are more than 5 pages)
-    // if there are less than 5 pages, render all pages
-    if (totalPages < 5) {
-      // If totalPages is less than 5, display all pages
-      for (let i = 1; i <= totalPages; i++) {
-        pagesToDisplay.push(i);
-      }
-      return pagesToDisplay;
-    }
     const getTemplate = (index = 0) => {
       return (
         <button
-          className="pagination-item"
+          className={ index === currentPage ? "pagination-item active-pagination-item" : "pagination-item"}
           onClick={() => setCurrentPage(index)}
         >
           {index}
         </button>
       );
     };
-    if (totalPages < 5) 
+    if (totalPages < 5)
       for (let i = 1; i <= totalPages; i++) {
         pagesToDisplay.push(getTemplate(i));
       }
@@ -243,14 +230,27 @@ const Dashboard = () => {
       pagesToDisplay.push(getTemplate(totalPages));
     } else if (currentPage === totalPages) {
       pagesToDisplay.push(getTemplate(1));
-      for (let i = totalPages - 3; i <= totalPages; i++) {
-        pagesToDisplay.push(getTemplate(i));
+      for (let i = 3; i >= 1; i--) {
+        pagesToDisplay.push(getTemplate(totalPages - i));
       }
+      pagesToDisplay.push(getTemplate(totalPages));
+    } else if (currentPage === 2) {
+      pagesToDisplay.push(getTemplate(1));
+      for (let i = 1; i <= 3; i++) {
+        pagesToDisplay.push(getTemplate(currentPage + i - 1));
+      }
+      pagesToDisplay.push(getTemplate(totalPages));
+    } else if (currentPage === totalPages - 1) {
+      pagesToDisplay.push(getTemplate(1));
+      for (let i = 2; i >= 0; i--) {
+        pagesToDisplay.push(getTemplate(currentPage - i));
+      }
+      pagesToDisplay.push(getTemplate(totalPages));
     } else {
       pagesToDisplay.push(getTemplate(1));
-      for (let i = currentPage - 1; i <= currentPage + 1; i++) {
-        pagesToDisplay.push(getTemplate(i));
-      }
+      pagesToDisplay.push(getTemplate(currentPage - 1));
+      pagesToDisplay.push(getTemplate(currentPage));
+      pagesToDisplay.push(getTemplate(currentPage + 1));
       pagesToDisplay.push(getTemplate(totalPages));
     }
 

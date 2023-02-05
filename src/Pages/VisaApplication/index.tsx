@@ -6,7 +6,6 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 
 import React from "react";
 import TextError from "../../Components/TextError";
-import { useState } from "react";
 
 interface VisaValues {
   firstName: string;
