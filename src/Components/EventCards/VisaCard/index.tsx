@@ -13,7 +13,7 @@ interface VisaCardProps {
 
 const VisaCard = ({props}: VisaCardProps) => {
   return (
-    <div className="visa-card">
+    <button className="visa-card">
       <h1> Visa </h1>
       <div className="visa-card-body">
         <div className="visa-card-date">
@@ -33,15 +33,7 @@ const VisaCard = ({props}: VisaCardProps) => {
           <p> Description: {props.description} </p>
         </div>
       </div>
-      <button
-        className="visa-card-button"
-        onClick={() => {
-          console.log("Button clicked");
-        }}
-      >
-        More info
-      </button>
-    </div>
+    </button>
   );
 };
 

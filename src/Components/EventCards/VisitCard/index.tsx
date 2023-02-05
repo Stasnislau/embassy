@@ -13,7 +13,7 @@ interface VisitCardProps {
 
 const VisitCard = ({ props }: VisitCardProps) => {
   return (
-    <div className="visit-card">
+    <button className="visit-card">
       <h1> Visit to the office </h1>
       <div className="visit-card-body">
         <div className="visit-card-date">
@@ -33,15 +33,7 @@ const VisitCard = ({ props }: VisitCardProps) => {
           <p> Description: {props.description} </p>
         </div>
       </div>
-      <button
-        className="visit-card-button"
-        onClick={() => {
-          console.log("Button clicked");
-        }}
-      >
-        More info
-      </button>
-    </div>
+    </button>
   );
 };
 
