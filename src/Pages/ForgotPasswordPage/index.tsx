@@ -21,7 +21,7 @@ const ForgotPassword: React.FC = () => {
       .oneOf([Yup.ref("newPassword"), null], "Passwords must match"),
   });
   const navigate = useNavigate();
-  const onSubmit = (values: any) => {
+  const onSubmit = (values: any) => { // TODO: add type
     console.log(values);
   };
   const initialValues = {

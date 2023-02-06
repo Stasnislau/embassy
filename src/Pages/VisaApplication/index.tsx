@@ -26,8 +26,6 @@ interface VisaValues {
   visaDuration: string;
   visaDate: string;
   comments: string;
-  agreedFingerprints: boolean;
-  agreedTerms: boolean;
 }
 
 const VisaApplication = () => {
@@ -48,8 +46,6 @@ const VisaApplication = () => {
     visaDuration: "",
     visaDate: "",
     comments: "",
-    agreedFingerprints: false,
-    agreedTerms: false,
   };
   const validationSchema = Yup.object({
     firstName: Yup.string()
@@ -69,19 +65,13 @@ const VisaApplication = () => {
     city: Yup.string().required("Required"),
     country: Yup.string().required("Required"),
     zip: Yup.string().required("Required"),
-
-    visaType: Yup.string().required("Required"),
     visaDate: Yup.string().required("Required"),
-    visaDuration: Yup.string().required("Required"),
     
-    agreedFingerprints: Yup.boolean().oneOf([true], "Required"),
-    agreedTerms: Yup.boolean().oneOf([true], "Required"),
   });
-  const onSubmit = (values: VisaValues) => {
-    console.log("HUY");
-    console.log("Form data", values);
-  };
   const navigate = useNavigate();
+  const onSubmit = (values: VisaValues) => {
+    console.log(values);
+  };
   return (
     <div className="visa-application-container">
       <Header />
@@ -246,7 +236,11 @@ const VisaApplication = () => {
                 </div>
                 <div className="form-control">
                   <label htmlFor="visaType">Visa Type</label>
-                  <select className="input-selector" name="visaType" id="visaType">
+                  <select
+                    className="input-selector"
+                    name="visaType"
+                    id="visaType"
+                  >
                     <option value="C Tourist">C Tourist</option>
                     <option value="C Transit">C Transit</option>
                     <option value="D Business">D Business</option>
@@ -305,7 +299,6 @@ const VisaApplication = () => {
               </div>
 
               <ErrorMessage name="checkbox" component={TextError} />
-              
             </div>
 
             <div className="buttons-container">
@@ -328,5 +321,4 @@ const VisaApplication = () => {
     </div>
   );
 };
- // TODO: fix the error message for the checkbox; nothing is submitted when the button is clicked
 export default VisaApplication;
