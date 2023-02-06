@@ -26,6 +26,8 @@ interface VisaValues {
   visaDuration: string;
   visaDate: string;
   comments: string;
+  checkbox_fingerprints: boolean;
+  checkbox_conditions: boolean;
 }
 
 const VisaApplication = () => {
@@ -46,6 +48,8 @@ const VisaApplication = () => {
     visaDuration: "",
     visaDate: "",
     comments: "",
+    checkbox_fingerprints: false,
+    checkbox_conditions: false,
   };
   const validationSchema = Yup.object({
     firstName: Yup.string()
@@ -66,6 +70,12 @@ const VisaApplication = () => {
     country: Yup.string().required("Required"),
     zip: Yup.string().required("Required"),
     visaDate: Yup.string().required("Required"),
+    checkbox_conditions: Yup.boolean().test("checkbox_conditions", "You must accept the terms and conditions", (value) => {
+        return value === true;
+    }),
+    checkbox_fingerprints: Yup.boolean().test("checkbox_fingerprints", "You must accept the terms and conditions", (value) => {
+        return value === true;
+    }),
     
   });
   const navigate = useNavigate();
@@ -280,20 +290,20 @@ const VisaApplication = () => {
               <div className="checkbox-item">
                 <Field
                   type="checkbox"
-                  name="checkbox-fingerprints"
+                  name="checkbox_fingerprints"
                   className="checkbox"
                 />
-                <label htmlFor="checkbox-fingerprints">
+                <label htmlFor="checkbox_fingerprints">
                   I agree to submit my fingerprints to the embassy.
                 </label>
               </div>
               <div className="checkbox-item">
                 <Field
                   type="checkbox"
-                  name="checkbox-conditions"
+                  name="checkbox_conditions"
                   className="checkbox"
                 />
-                <label htmlFor="checkbox">
+                <label htmlFor="checkbox_conditions">
                   I agree to the terms and conditions.
                 </label>
               </div>
@@ -315,6 +325,8 @@ const VisaApplication = () => {
                 Cancel
               </button>
             </div>
+            <ErrorMessage name="checkbox_conditions" component={TextError} />
+            <ErrorMessage name="checkbox_fingerprints" component={TextError} />
           </Form>
         </Formik>
       </div>
