@@ -101,7 +101,6 @@ const VisaApplication = () => {
                     id="firstName"
                     name="firstName"
                     type="text"
-                    placeholder="First Name"
                     className="first-name-field input-field"
                   />
                   <ErrorMessage name="firstName" component={TextError} />
@@ -112,7 +111,6 @@ const VisaApplication = () => {
                     id="lastName"
                     name="lastName"
                     type="text"
-                    placeholder="Last Name"
                     className="last-name-field input-field"
                   />
                   <ErrorMessage name="lastName" component={TextError} />
@@ -125,7 +123,7 @@ const VisaApplication = () => {
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="Email"
+                    placeholder="exam@ple.smt"
                     className="email-field input-field"
                   />
                   <ErrorMessage name="email" component={TextError} />
@@ -136,7 +134,7 @@ const VisaApplication = () => {
                     id="phone"
                     name="phone"
                     type="text"
-                    placeholder="Phone"
+                    placeholder="+XXXXXXXXXXX"
                     className="phone-field input-field"
                   />
                   <ErrorMessage name="phone" component={TextError} />
@@ -149,7 +147,7 @@ const VisaApplication = () => {
                   id="passportNumber"
                   name="passportNumber"
                   type="text"
-                  placeholder="Passport Number"
+                  placeholder="ABXXXXXXXX"
                   className="passport-number-field input-field"
                 />
                 <ErrorMessage name="passportNumber" component={TextError} />
@@ -163,7 +161,7 @@ const VisaApplication = () => {
                     id="passportExpiration"
                     name="passportExpiration"
                     type="text"
-                    placeholder="Passport Expiration"
+                    placeholder="mm/yyyy"
                     className="passport-expiration-field input-field"
                   />
                   <ErrorMessage
@@ -177,7 +175,6 @@ const VisaApplication = () => {
                     id="passportCountry"
                     name="passportCountry"
                     type="text"
-                    placeholder="Country of issue"
                     className="passport-country-field input-field"
                   />
                   <ErrorMessage name="passportCountry" component={TextError} />
@@ -190,7 +187,7 @@ const VisaApplication = () => {
                     id="address"
                     name="address"
                     type="text"
-                    placeholder="Address"
+                    placeholder="street, house, flat"
                     className="address-field input-field"
                   />
                   <ErrorMessage name="address" component={TextError} />
@@ -203,7 +200,6 @@ const VisaApplication = () => {
                     id="country"
                     name="country"
                     type="text"
-                    placeholder="Country"
                     className="country-field input-field"
                   />
                   <ErrorMessage name="country" component={TextError} />
@@ -214,7 +210,6 @@ const VisaApplication = () => {
                     id="city"
                     name="city"
                     type="text"
-                    placeholder="City"
                     className="city-field input-field"
                   />
                   <ErrorMessage name="city" component={TextError} />
@@ -226,7 +221,7 @@ const VisaApplication = () => {
                     id="zip"
                     name="zip"
                     type="text"
-                    placeholder="Zip"
+                    placeholder="Your post code"
                     className="zip-field input-field"
                   />
                   <ErrorMessage name="zip" component={TextError} />
@@ -239,7 +234,7 @@ const VisaApplication = () => {
                     id="visaDate"
                     name="visaDate"
                     type="text"
-                    placeholder="Visa valid from"
+                    placeholder="dd/mm/yyyy"
                     className="visa-date-field input-field"
                   />
                   <ErrorMessage name="visaDate" component={TextError} />
@@ -280,7 +275,7 @@ const VisaApplication = () => {
                   id="comments"
                   name="comments"
                   type="text"
-                  placeholder="Comments"
+                  placeholder="Write any additional information here"
                   className="comments-field input-field"
                 />
                 <ErrorMessage name="comments" component={TextError} />

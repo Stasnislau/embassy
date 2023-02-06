@@ -13,6 +13,7 @@ import Footer from "../src/Components/Footer";
 import ForgotPasswordPage from "../src/Pages/ForgotPasswordPage";
 import LoginPage from "../src/Pages/LoginPage";
 import React from "react";
+import ResidencePermitApplication from "../src/Pages/ResidencePermitApplication";
 import VisaApplication from "../src/Pages/VisaApplication";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
               path="/visa-application"
               element={<VisaApplication />}
             ></Route>
+            <Route path="/residence-application" element={<ResidencePermitApplication/>}></Route>
             <Route path="*" element={<Navigate to="/login" />}></Route>
           </Routes>
         </div>
