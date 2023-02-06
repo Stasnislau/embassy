@@ -23,14 +23,16 @@
     }
     .several-fields-container {
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
       width: 100%;
-      gap: 10px;
+      gap: 20px;
+      flex-basis: 50%;
+      margin: 0;
     }
     .form-control {
       padding: 5px 0;
       min-height: 60px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -42,6 +44,16 @@
       width: 100%;
       min-height: 30px;
       border: 1px solid #ccc;
+      padding-left: 5px;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+      
+    }
+    .input-selector{
+      min-height: 35px;
+      border: 1px solid #ccc;
+      padding-left: 5px;
       border-radius: 5px;
       font-size: 16px;
       outline: none;
@@ -63,6 +75,12 @@
       border-radius: 5px;
       font-size: 16px;
     }
+    .submit-button:hover {
+      background-color: #303f9f;
+      scale: 1.01;
+      transition: 0.2s;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
     .cancel-button {
       width: 49%;
       height: 50px;
@@ -72,13 +90,20 @@
       border-radius: 5px;
       font-size: 16px;
     }
+    .cancel-button:hover {
+      background-color: white;
+      border: 1px solid #3f51b5;
+      scale: 1.01;
+      transition: 0.2s;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
     .checkbox-container {
       display: flex;
       flex-direction: column;
       gap: 10px;
       margin: 10px 0;
 
-      .checkbox-item{
+      .checkbox-item {
         display: flex;
         align-items: center;
         gap: 5px;
@@ -90,7 +115,6 @@
           outline: none;
         }
       }
-
     }
   }
 }

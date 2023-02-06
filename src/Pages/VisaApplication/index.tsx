@@ -246,7 +246,7 @@ const VisaApplication = () => {
                 </div>
                 <div className="form-control">
                   <label htmlFor="visaType">Visa Type</label>
-                  <select className="input-field" name="visaType" id="visaType">
+                  <select className="input-selector" name="visaType" id="visaType">
                     <option value="C Tourist">C Tourist</option>
                     <option value="C Transit">C Transit</option>
                     <option value="D Business">D Business</option>
@@ -258,7 +258,7 @@ const VisaApplication = () => {
                 <div className="form-control">
                   <label htmlFor="visaDuration">Visa Duration</label>
                   <select
-                    className="input-field"
+                    className="input-selector"
                     name="visaDuration"
                     id="visaDuration"
                   >
