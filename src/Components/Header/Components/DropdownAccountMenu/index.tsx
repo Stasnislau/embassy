@@ -4,9 +4,11 @@ import React, { useState } from "react";
 
 import AccountIcon from "../../../../Pictures/accountIcon.svg";
 import DropdownDown from "../../../../Pictures/arrowDown.svg";
+import { useNavigate } from "react-router-dom";
 
 const DropdownAccountMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div
@@ -34,9 +36,46 @@ const DropdownAccountMenu = () => {
 
         {isOpen && (
           <ul className="dropdown-account-menu">
-            <li className="dropdown-account-menu-item">Option 1</li>
-            <li className="dropdown-account-menu-item">Option 2</li>
-            <li className="dropdown-account-menu-item">Option 3</li>
+            <li className="dropdown-account-menu-item">
+              <button
+                className="dropdown-account-menu-item-button"
+                onClick={() => {
+                  console.log("test1");
+                }}
+              >
+                Your information
+              </button>
+            </li>
+            <li className="dropdown-account-menu-item">
+              <button
+                className="dropdown-account-menu-item-button"
+                onClick={() => {
+                  console.log("test2");
+                }}
+              >
+                Your cases
+              </button>
+            </li>
+            <li className="dropdown-account-menu-item">
+              <button
+                className="dropdown-account-menu-item-button"
+                onClick={() => {
+                  console.log("test3");
+                }}
+              >
+                Visit management
+              </button>
+            </li>
+            <li className="dropdown-account-menu-item">
+              <button
+                className="dropdown-account-menu-item-button"
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Log out
+              </button>
+            </li>
           </ul>
         )}
       </div>
