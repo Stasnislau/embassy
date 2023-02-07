@@ -1,0 +1,93 @@
+.visits-page-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90vh;
+    .visits-page-boxes-container {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 585px;
+      width: 80%;
+      margin-top: 30px;
+    }
+    .visits-page-body{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      margin-top: 30px;
+    }
+    .visits-page-box {
+      position: relative;
+      background-color: #fff;
+      width: 30%;
+      height: 250px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .visits-page-box:hover {
+      background-color: #eee;
+      transition: 0.2s;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
+    .visits-page-pagination {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      font-size: 16px;
+      align-items: center;
+  
+      .pagination-item{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #20068a;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .pagination-item:hover{
+        background-color: #20068a;
+        color: #fff;
+        transition: 0.2s;
+      }
+      .active-pagination-item{
+        background-color: #20068a;
+        color: #fff;
+      }
+    }
+    .plus-icon{
+        margin: 10px;
+        font-size: 30px;
+        width: 30%;
+        height: 30%;
+        cursor: pointer;
+    }
+    .visits-page-add-button{
+        position: absolute;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+        bottom: 0;
+        right: 0;
+        font-size: 30px;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background-color: inherit;
+        border: none;
+    }
+  }
+  

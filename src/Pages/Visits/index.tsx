@@ -3,9 +3,10 @@ import "./index.scss";
 import Header from "../../Components/Header";
 import React from "react";
 import VisitCard from "../../Components/EventCards/VisitCard";
+import plusIcon from "../../Pictures/plus.svg";
 import { useState } from "react";
 
-const Visits = () => {
+const VisitsPage = () => {
   const visits = [
     {
       date: "2020-12-12",
@@ -253,10 +254,11 @@ const Visits = () => {
     });
   };
   const checkNumberToSliceBegin = () => {
-    return (currentPage - 1) * 6;
+    if (currentPage === 1) return 0;
+    else return (currentPage - 1) * 6 - 1;
   };
   const checkNumberToSliceEnd = () => {
-    return currentPage * 6;
+    return currentPage * 6 - 1;
   };
 
   return (
@@ -264,6 +266,13 @@ const Visits = () => {
       <Header />
       <div className="visits-page-body">
         <div className="visits-page-boxes-container">
+          {" "}
+          <div className="visits-page-box">
+            <button className="visits-page-add-button">
+              <div className="schedule-text">Schedule a visit</div>
+              <img src={plusIcon} alt="plus icon" className="plus-icon" />
+            </button>
+          </div>
           {visits
             .slice(checkNumberToSliceBegin(), checkNumberToSliceEnd())
             .map((visit) => {
@@ -279,3 +288,5 @@ const Visits = () => {
     </div>
   );
 };
+
+export default VisitsPage;
