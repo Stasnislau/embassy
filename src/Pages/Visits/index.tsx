@@ -1,6 +1,9 @@
 import "./index.scss";
 
+import { ErrorMessage, Field, Form, Formik } from "formik";
+
 import Header from "../../Components/Header";
+import ModalMenu from "../../Components/ModalMenu";
 import React from "react";
 import VisitCard from "../../Components/EventCards/VisitCard";
 import plusIcon from "../../Pictures/plus.svg";
@@ -196,6 +199,7 @@ const VisitsPage = () => {
     },
   ];
   const maxPages = Math.floor(visits.length / 6);
+  const [openedNewVisit, setOpenedNewVisit] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const renderPagination = () => {
     const totalPages = maxPages;
@@ -260,6 +264,12 @@ const VisitsPage = () => {
   const checkNumberToSliceEnd = () => {
     return currentPage * 6 - 1;
   };
+  const initialValues = {
+    date: "",
+    time: "",
+    location: "",
+    description: "",
+  };
 
   return (
     <div className="visits-page-container">
@@ -283,7 +293,12 @@ const VisitsPage = () => {
               );
             })}
         </div>
-        <div className="visits-page-pagination">{renderPagination()}</div>
+        <ModalMenu isOpen={openedNewVisit} setIsOpen={setOpenedNewVisit}>
+          <button
+            className="close-button"
+            onClick={() => setOpenedNewVisit(false)}
+          ></button>
+        </ModalMenu>
       </div>
     </div>
   );
