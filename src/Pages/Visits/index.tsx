@@ -1,13 +1,12 @@
 import "./index.scss";
 
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import React, { useState } from "react";
 
 import Header from "../../Components/Header";
-import ModalMenu from "../../Components/ModalMenu";
-import React from "react";
+import Modal from "@mui/material/Modal";
 import VisitCard from "../../Components/EventCards/VisitCard";
 import plusIcon from "../../Pictures/plus.svg";
-import { useState } from "react";
 
 const VisitsPage = () => {
   const visits = [
@@ -199,7 +198,7 @@ const VisitsPage = () => {
     },
   ];
   const maxPages = Math.floor(visits.length / 6);
-  const [openedNewVisit, setOpenedNewVisit] = useState(false);
+
   const [currentPage, setCurrentPage] = useState(1);
   const renderPagination = () => {
     const totalPages = maxPages;
@@ -270,6 +269,7 @@ const VisitsPage = () => {
     location: "",
     description: "",
   };
+  const [openedNewVisit, setOpenedNewVisit] = useState(true);
 
   return (
     <div className="visits-page-container">
@@ -278,7 +278,14 @@ const VisitsPage = () => {
         <div className="visits-page-boxes-container">
           {" "}
           <div className="visits-page-box">
-            <button className="visits-page-add-button">
+            <button
+              className="visits-page-add-button"
+              onClick={() => {
+                console.log("clicked", openedNewVisit);
+                setOpenedNewVisit(true);
+                console.log("clicked", openedNewVisit);
+              }}
+            >
               <div className="schedule-text">Schedule a visit</div>
               <img src={plusIcon} alt="plus icon" className="plus-icon" />
             </button>
@@ -293,12 +300,82 @@ const VisitsPage = () => {
               );
             })}
         </div>
-        <ModalMenu isOpen={openedNewVisit} setIsOpen={setOpenedNewVisit}>
-          <button
-            className="close-button"
-            onClick={() => setOpenedNewVisit(false)}
-          ></button>
-        </ModalMenu>
+        <Modal
+          open={openedNewVisit}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          className="add-visit-modal"
+        >
+          <Formik
+            initialValues={initialValues}
+            onSubmit={(values) => {
+              visits.push(values);
+            }}
+          >
+            <Form className="modal-form">
+              <div className="modal-form-inputs">
+                <div className="several-fields-container">
+                  <div className="form-control">
+                    <label htmlFor="date">Date</label>
+                    <Field
+                      type="date"
+                      id="date"
+                      name="date"
+                      className="modal-form-input"
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label htmlFor="time">Time</label>
+                    <Field
+                      type="time"
+                      id="time"
+                      name="time"
+                      className="modal-form-input input-field"
+                    />
+                  </div>
+                </div>
+                <div className="several-fields-container">
+                  <div className="form-control">
+                    <label htmlFor="location">Location</label>
+                    <select
+                      name="location"
+                      id="location"
+                      className="input-selector"
+                    >
+                      <option value="10 Main Street, New York, NY 10001">
+                        10 Main Street, New York, NY 10001
+                      </option>
+                      <option value="15 Main Street, New York, NY 10001">
+                        15 Main Street, New York, NY 10001
+                      </option>
+                    </select>
+                  </div>
+                  <div className="form-control">
+                    <label htmlFor="description">Purpose of the visit</label>
+                    <select
+                      name="description"
+                      id="description"
+                      className="input-selector"
+                    >
+                      <option value="Visit to submit new documents">
+                        Visit to submit new documents
+                      </option>
+                      <option value="Visit to ask questions about my application">
+                        Visit to ask questions about my application
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <button
+                className="close-button"
+                onClick={() => {
+                  setOpenedNewVisit(false);
+                }}
+              ></button>
+            </Form>
+          </Formik>
+        </Modal>
       </div>
     </div>
   );
