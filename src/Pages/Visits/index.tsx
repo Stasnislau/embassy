@@ -269,7 +269,7 @@ const VisitsPage = () => {
     location: "",
     description: "",
   };
-  const [openedNewVisit, setOpenedNewVisit] = useState(true);
+  const [openedNewVisit, setOpenedNewVisit] = useState(false);
 
   return (
     <div className="visits-page-container">
@@ -306,75 +306,81 @@ const VisitsPage = () => {
           aria-describedby="modal-modal-description"
           className="add-visit-modal"
         >
-          <Formik
-            initialValues={initialValues}
-            onSubmit={(values) => {
-              visits.push(values);
-            }}
-          >
-            <Form className="modal-form">
-              <div className="modal-form-inputs">
-                <div className="several-fields-container">
-                  <div className="form-control">
-                    <label htmlFor="date">Date</label>
-                    <Field
-                      type="date"
-                      id="date"
-                      name="date"
-                      className="modal-form-input"
-                    />
+          <div className="modal-container">
+            <Formik
+              initialValues={initialValues}
+              onSubmit={(values) => {
+                visits.push(values);
+              }}
+            >
+              <div className="modal-form-container">
+                <Form className="modal-form">
+                  <div className="modal-form-inputs">
+                    <div className="several-fields-container">
+                      <div className="form-control">
+                        <label htmlFor="date">Date</label>
+                        <Field
+                          type="date"
+                          id="date"
+                          name="date"
+                          className="modal-form-input"
+                        />
+                      </div>
+                      <div className="form-control">
+                        <label htmlFor="time">Time</label>
+                        <Field
+                          type="time"
+                          id="time"
+                          name="time"
+                          className="modal-form-input input-field"
+                        />
+                      </div>
+                    </div>
+                    <div className="several-fields-container">
+                      <div className="form-control">
+                        <label htmlFor="location">Location</label>
+                        <select
+                          name="location"
+                          id="location"
+                          className="input-selector"
+                        >
+                          <option value="10 Main Street, New York, NY 10001">
+                            10 Main Street, New York, NY 10001
+                          </option>
+                          <option value="15 Main Street, New York, NY 10001">
+                            15 Main Street, New York, NY 10001
+                          </option>
+                        </select>
+                      </div>
+                      <div className="form-control">
+                        <label htmlFor="description">
+                          Purpose of the visit
+                        </label>
+                        <select
+                          name="description"
+                          id="description"
+                          className="input-selector"
+                        >
+                          <option value="Visit to submit new documents">
+                            Visit to submit new documents
+                          </option>
+                          <option value="Visit to ask questions about my application">
+                            Visit to ask questions about my application
+                          </option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
-                  <div className="form-control">
-                    <label htmlFor="time">Time</label>
-                    <Field
-                      type="time"
-                      id="time"
-                      name="time"
-                      className="modal-form-input input-field"
-                    />
-                  </div>
-                </div>
-                <div className="several-fields-container">
-                  <div className="form-control">
-                    <label htmlFor="location">Location</label>
-                    <select
-                      name="location"
-                      id="location"
-                      className="input-selector"
-                    >
-                      <option value="10 Main Street, New York, NY 10001">
-                        10 Main Street, New York, NY 10001
-                      </option>
-                      <option value="15 Main Street, New York, NY 10001">
-                        15 Main Street, New York, NY 10001
-                      </option>
-                    </select>
-                  </div>
-                  <div className="form-control">
-                    <label htmlFor="description">Purpose of the visit</label>
-                    <select
-                      name="description"
-                      id="description"
-                      className="input-selector"
-                    >
-                      <option value="Visit to submit new documents">
-                        Visit to submit new documents
-                      </option>
-                      <option value="Visit to ask questions about my application">
-                        Visit to ask questions about my application
-                      </option>
-                    </select>
-                  </div>
-                </div>
+                  <button
+                    className="close-button"
+                    onClick={() => {
+                      setOpenedNewVisit(false);
+                    }}
+                  ></button>
+                </Form>
               </div>
-              <button
-                className="close-button"
-                onClick={() => {
-                  setOpenedNewVisit(false);
-                }}
-              ></button>
-            </Form>
-          </Formik>
+            </Formik>
+          </div>
         </Modal>
       </div>
     </div>
