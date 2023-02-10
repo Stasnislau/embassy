@@ -1,12 +1,22 @@
 import "./index.scss";
 
+import * as Yup from "yup";
+
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 
 import Header from "../../Components/Header";
 import Modal from "@mui/material/Modal";
+import TextError from "../../Components/TextError";
 import VisitCard from "../../Components/EventCards/VisitCard";
 import plusIcon from "../../Pictures/plus.svg";
+
+interface visitInterface {
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+}
 
 const VisitsPage = () => {
   const visits = [
@@ -256,6 +266,10 @@ const VisitsPage = () => {
       return item;
     });
   };
+  const validationSchema = Yup.object().shape({
+    date: Yup.string().required("Required"),
+    time: Yup.string().required("Required"),
+  });
   const checkNumberToSliceBegin = () => {
     if (currentPage === 1) return 0;
     else return (currentPage - 1) * 6 - 1;
@@ -268,6 +282,9 @@ const VisitsPage = () => {
     time: "",
     location: "",
     description: "",
+  };
+  const onSubmit = (values: visitInterface) => {
+    visits.push(values);
   };
   const [openedNewVisit, setOpenedNewVisit] = useState(false);
 
@@ -300,6 +317,8 @@ const VisitsPage = () => {
               );
             })}
         </div>
+        <div className="dashboard-pagination">{renderPagination()}</div>
+
         <Modal
           open={openedNewVisit}
           aria-labelledby="modal-modal-title"
@@ -309,9 +328,8 @@ const VisitsPage = () => {
           <div className="modal-container">
             <Formik
               initialValues={initialValues}
-              onSubmit={(values) => {
-                visits.push(values);
-              }}
+              onSubmit={onSubmit}
+              validationSchema={validationSchema}
             >
               <div className="modal-form-container">
                 <Form className="modal-form">
@@ -323,60 +341,70 @@ const VisitsPage = () => {
                           type="date"
                           id="date"
                           name="date"
-                          className="modal-form-input"
+                          className="modal-form-input input-field"
                         />
+                        <ErrorMessage name="date" component={TextError} />
                       </div>
                       <div className="form-control">
                         <label htmlFor="time">Time</label>
                         <Field
                           type="time"
                           id="time"
+                          value="13:00:00"
+                          min="09:00:00"
+                          max="18:00:00"
+                          step="3600"
                           name="time"
                           className="modal-form-input input-field"
                         />
+                        <ErrorMessage name="time" component={TextError} />
                       </div>
                     </div>
-                    <div className="several-fields-container">
-                      <div className="form-control">
-                        <label htmlFor="location">Location</label>
-                        <select
-                          name="location"
-                          id="location"
-                          className="input-selector"
-                        >
-                          <option value="10 Main Street, New York, NY 10001">
-                            10 Main Street, New York, NY 10001
-                          </option>
-                          <option value="15 Main Street, New York, NY 10001">
-                            15 Main Street, New York, NY 10001
-                          </option>
-                        </select>
-                      </div>
-                      <div className="form-control">
-                        <label htmlFor="description">
-                          Purpose of the visit
-                        </label>
-                        <select
-                          name="description"
-                          id="description"
-                          className="input-selector"
-                        >
-                          <option value="Visit to submit new documents">
-                            Visit to submit new documents
-                          </option>
-                          <option value="Visit to ask questions about my application">
-                            Visit to ask questions about my application
-                          </option>
-                        </select>
-                      </div>
+                    <div className="form-control">
+                      <label htmlFor="location">Location</label>
+                      <select
+                        name="location"
+                        id="location"
+                        className="input-selector"
+                      >
+                        <option value="10 Main Street, New York, NY 10001">
+                          10 Main Street, New York, NY 10001
+                        </option>
+                        <option value="15 Main Street, New York, NY 10001">
+                          15 Main Street, New York, NY 10001
+                        </option>
+                      </select>
+                    </div>
+                    <div className="form-control">
+                      <label htmlFor="description">Purpose of the visit</label>
+                      <select
+                        name="description"
+                        id="description"
+                        className="input-selector"
+                      >
+                        <option value="Visit to submit new documents">
+                          Visit to submit new documents
+                        </option>
+                        <option value="Visit to ask questions about my application">
+                          Visit to ask questions about my application
+                        </option>
+                      </select>
                     </div>
                   </div>
-                  <button
-                    className="close-button"
-                    onClick={() => {
-                      setOpenedNewVisit(false);
-                    }}
-                  ></button>
+                  <div className="buttons-container">
+                    <button className="submit-button" type="submit">
+                      Add
+                    </button>
+                    <button
+                      className="cancel-button"
+                      type="reset"
+                      onClick={() => {
+                        setOpenedNewVisit(false);
+                      }}
+                    >
+                      Close
+                    </button>
+                  </div>
                 </Form>
               </div>
             </Formik>
