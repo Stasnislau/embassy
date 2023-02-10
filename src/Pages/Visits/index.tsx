@@ -194,25 +194,12 @@ const VisitsPage = () => {
       location: "29 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "30 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "31 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
   ]);
   const [maxPages, setMaxPages] = useState(Math.ceil(visits.length / 6));
 
   const [currentPage, setCurrentPage] = useState(1);
-  const renderPagination = () => {
-    const totalPages = maxPages;
-    const pagesToDisplay = [];
+  const RenderPagination = () => {
+    const [pagesToDisplay, setPagesToDisplay] = useState([]);
     const getTemplate = (index = 0) => {
       return (
         <button
@@ -227,39 +214,39 @@ const VisitsPage = () => {
         </button>
       );
     };
-    if (totalPages < 5)
-      for (let i = 1; i <= totalPages; i++) {
-        pagesToDisplay.push(getTemplate(i));
+    if (maxPages < 5)
+      for (let i = 1; i <= maxPages; i++) {
+        setPagesToDisplay((prev) => [...prev, getTemplate(i)]);
       }
     else if (currentPage === 1) {
       for (let i = 1; i <= 4; i++) {
         pagesToDisplay.push(getTemplate(i));
       }
-      pagesToDisplay.push(getTemplate(totalPages));
-    } else if (currentPage === totalPages) {
+      pagesToDisplay.push(getTemplate(maxPages));
+    } else if (currentPage === maxPages) {
       pagesToDisplay.push(getTemplate(1));
       for (let i = 3; i >= 1; i--) {
-        pagesToDisplay.push(getTemplate(totalPages - i));
+        pagesToDisplay.push(getTemplate(maxPages - i));
       }
-      pagesToDisplay.push(getTemplate(totalPages));
+      pagesToDisplay.push(getTemplate(maxPages));
     } else if (currentPage === 2) {
       pagesToDisplay.push(getTemplate(1));
       for (let i = 1; i <= 3; i++) {
         pagesToDisplay.push(getTemplate(currentPage + i - 1));
       }
-      pagesToDisplay.push(getTemplate(totalPages));
-    } else if (currentPage === totalPages - 1) {
+      pagesToDisplay.push(getTemplate(maxPages));
+    } else if (currentPage === maxPages - 1) {
       pagesToDisplay.push(getTemplate(1));
       for (let i = 2; i >= 0; i--) {
         pagesToDisplay.push(getTemplate(currentPage - i));
       }
-      pagesToDisplay.push(getTemplate(totalPages));
+      pagesToDisplay.push(getTemplate(maxPages));
     } else {
       pagesToDisplay.push(getTemplate(1));
       pagesToDisplay.push(getTemplate(currentPage - 1));
       pagesToDisplay.push(getTemplate(currentPage));
       pagesToDisplay.push(getTemplate(currentPage + 1));
-      pagesToDisplay.push(getTemplate(totalPages));
+      pagesToDisplay.push(getTemplate(maxPages));
     }
 
     return pagesToDisplay.map((item) => {
@@ -288,7 +275,6 @@ const VisitsPage = () => {
   const onSubmit = (values: visitInterface) => {
     setVisits([...visits, values]);
     setMaxPages(Math.ceil(visits.length / 6));
-    console.log(values);
     setOpenedNewVisit(false);
   };
   const [openedNewVisit, setOpenedNewVisit] = useState(false);
@@ -322,7 +308,7 @@ const VisitsPage = () => {
               );
             })}
         </div>
-        <div className="visits-pagination">{renderPagination()}</div>
+        <div className="visits-pagination">{RenderPagination()}</div>
 
         <Modal
           open={openedNewVisit}
