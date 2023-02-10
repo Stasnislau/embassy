@@ -91,6 +91,36 @@
     margin: 0;
     padding: 0;
   }
+  .visits-pagination {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 5px;
+    font-size: 16px;
+    align-items: center;
+
+    .pagination-item{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #20068a;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .pagination-item:hover{
+      background-color: #20068a;
+      color: #fff;
+      transition: 0.2s;
+    }
+    .active-pagination-item{
+      background-color: #20068a;
+      color: #fff;
+    }
+  }
 }
 .modal-container {
   position: absolute;
@@ -112,7 +142,18 @@
     height: fit-content;
     background-color: #fff;
     border-radius: 5px;
-    padding: 40px;
+    padding: 20px 30px 0 30px;
+  }
+  .modal-form-title{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
   }
   .several-fields-container {
     display: flex;
@@ -190,4 +231,5 @@
     transition: 0.2s;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   }
+  
 }

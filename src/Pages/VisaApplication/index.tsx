@@ -70,13 +70,20 @@ const VisaApplication = () => {
     country: Yup.string().required("Required"),
     zip: Yup.string().required("Required"),
     visaDate: Yup.string().required("Required"),
-    checkbox_conditions: Yup.boolean().test("checkbox_conditions", "You must accept the terms and conditions", (value) => {
+    checkbox_conditions: Yup.boolean().test(
+      "checkbox_conditions",
+      "You must accept the terms and conditions",
+      (value) => {
         return value === true;
-    }),
-    checkbox_fingerprints: Yup.boolean().test("checkbox_fingerprints", "You must accept the terms and conditions", (value) => {
+      }
+    ),
+    checkbox_fingerprints: Yup.boolean().test(
+      "checkbox_fingerprints",
+      "You must accept the terms and conditions",
+      (value) => {
         return value === true;
-    }),
-    
+      }
+    ),
   });
   const navigate = useNavigate();
   const onSubmit = (values: VisaValues) => {
@@ -241,10 +248,12 @@ const VisaApplication = () => {
                 </div>
                 <div className="form-control">
                   <label htmlFor="visaType">Visa Type</label>
-                  <select
+                  <Field
+                    component="select"
                     className="input-selector"
                     name="visaType"
                     id="visaType"
+                    defaultValue="A Tourist"
                   >
                     <option value="C Tourist">C Tourist</option>
                     <option value="C Transit">C Transit</option>
@@ -252,21 +261,23 @@ const VisaApplication = () => {
                     <option value="D Student">D Student</option>
                     <option value="D Work">D Work</option>
                     <option value="D Refugee">D Transit</option>
-                  </select>
+                  </Field>
                 </div>
                 <div className="form-control">
                   <label htmlFor="visaDuration">Visa Duration</label>
-                  <select
+                  <Field
                     className="input-selector"
+                    component="select"
                     name="visaDuration"
                     id="visaDuration"
+                    defaultValue="1 Month"
                   >
                     <option value="1 Month">1 Month</option>
                     <option value="3 Months">3 Months</option>
                     <option value="6 Months">6 Months</option>
                     <option value="1 Year">1 Year</option>
                     <option value="2 Years">2 Years</option>
-                  </select>
+                  </Field>
                 </div>
               </div>
               <div className="form-control">

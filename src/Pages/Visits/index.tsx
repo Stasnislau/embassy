@@ -19,7 +19,7 @@ interface visitInterface {
 }
 
 const VisitsPage = () => {
-  const visits = [
+  const [visits, setVisits] = useState([
     {
       date: "2020-12-12",
       time: "12:00",
@@ -83,131 +83,131 @@ const VisitsPage = () => {
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "11 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "12 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "13 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "14 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "15 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "16 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "17 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "18 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "19 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "20 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "21 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "22 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "23 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "24 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "25 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "26 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "27 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "28 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "29 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "30 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
     {
       date: "2020-12-12",
       time: "12:00",
-      location: "10 Main Street, New York, NY 10001",
+      location: "31 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
-  ];
-  const maxPages = Math.floor(visits.length / 6);
+  ]);
+  const [maxPages, setMaxPages] = useState(Math.ceil(visits.length / 6));
 
   const [currentPage, setCurrentPage] = useState(1);
   const renderPagination = () => {
@@ -269,6 +269,8 @@ const VisitsPage = () => {
   const validationSchema = Yup.object().shape({
     date: Yup.string().required("Required"),
     time: Yup.string().required("Required"),
+    location: Yup.string().required("Required"),
+    description: Yup.string().required("Required"),
   });
   const checkNumberToSliceBegin = () => {
     if (currentPage === 1) return 0;
@@ -280,11 +282,14 @@ const VisitsPage = () => {
   const initialValues = {
     date: "",
     time: "",
-    location: "",
-    description: "",
+    location: "10 Main Street, New York, NY 10001",
+    description: "Submission of new documents",
   };
   const onSubmit = (values: visitInterface) => {
-    visits.push(values);
+    setVisits([...visits, values]);
+    setMaxPages(Math.ceil(visits.length / 6));
+    console.log(values);
+    setOpenedNewVisit(false);
   };
   const [openedNewVisit, setOpenedNewVisit] = useState(false);
 
@@ -294,19 +299,19 @@ const VisitsPage = () => {
       <div className="visits-page-body">
         <div className="visits-page-boxes-container">
           {" "}
-          <div className="visits-page-box">
-            <button
-              className="visits-page-add-button"
-              onClick={() => {
-                console.log("clicked", openedNewVisit);
-                setOpenedNewVisit(true);
-                console.log("clicked", openedNewVisit);
-              }}
-            >
-              <div className="schedule-text">Schedule a visit</div>
-              <img src={plusIcon} alt="plus icon" className="plus-icon" />
-            </button>
-          </div>
+          {currentPage === 1 && (
+            <div className="visits-page-box">
+              <button
+                className="visits-page-add-button"
+                onClick={() => {
+                  setOpenedNewVisit(true);
+                }}
+              >
+                <div className="schedule-text">Schedule a visit</div>
+                <img src={plusIcon} alt="plus icon" className="plus-icon" />
+              </button>
+            </div>
+          )}
           {visits
             .slice(checkNumberToSliceBegin(), checkNumberToSliceEnd())
             .map((visit) => {
@@ -317,7 +322,7 @@ const VisitsPage = () => {
               );
             })}
         </div>
-        <div className="dashboard-pagination">{renderPagination()}</div>
+        <div className="visits-pagination">{renderPagination()}</div>
 
         <Modal
           open={openedNewVisit}
@@ -334,10 +339,12 @@ const VisitsPage = () => {
               <div className="modal-form-container">
                 <Form className="modal-form">
                   <div className="modal-form-inputs">
+                    <h1 className="modal-form-title">Schedule a visit</h1>
                     <div className="several-fields-container">
                       <div className="form-control">
                         <label htmlFor="date">Date</label>
                         <Field
+                          defaultValue={new Date().toISOString().slice(0, 10)}
                           type="date"
                           id="date"
                           name="date"
@@ -348,9 +355,9 @@ const VisitsPage = () => {
                       <div className="form-control">
                         <label htmlFor="time">Time</label>
                         <Field
+                          defaultValue="09:00:00"
                           type="time"
                           id="time"
-                          value="13:00:00"
                           min="09:00:00"
                           max="18:00:00"
                           step="3600"
@@ -362,7 +369,9 @@ const VisitsPage = () => {
                     </div>
                     <div className="form-control">
                       <label htmlFor="location">Location</label>
-                      <select
+                      <Field
+                        component="select"
+                        defaultValue="10 Main Street, New York, NY 10001"
                         name="location"
                         id="location"
                         className="input-selector"
@@ -373,22 +382,21 @@ const VisitsPage = () => {
                         <option value="15 Main Street, New York, NY 10001">
                           15 Main Street, New York, NY 10001
                         </option>
-                      </select>
+                      </Field>
                     </div>
                     <div className="form-control">
                       <label htmlFor="description">Purpose of the visit</label>
-                      <select
+                      <Field
+                        component="select"
+                        className="input-selector"
                         name="description"
                         id="description"
-                        className="input-selector"
+                        defaultValue="Submission of documents"
                       >
-                        <option value="Visit to submit new documents">
-                          Visit to submit new documents
-                        </option>
-                        <option value="Visit to ask questions about my application">
-                          Visit to ask questions about my application
-                        </option>
-                      </select>
+                        <option value="Submission of documents">Visit</option>
+                        <option value="Meeting">Meeting</option>
+                        <option value="Interview">Interview</option>
+                      </Field>
                     </div>
                   </div>
                   <div className="buttons-container">
