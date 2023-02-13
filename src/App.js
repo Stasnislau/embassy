@@ -15,6 +15,7 @@ import LoginPage from "../src/Pages/LoginPage";
 import React from "react";
 import ResidencePermitApplication from "../src/Pages/ResidencePermitApplication";
 import VisaApplication from "../src/Pages/VisaApplication";
+import VisitPage from "../src/Pages/VisitPage";
 import VisitsPage from "../src/Pages/Visits";
 
 function App() {
@@ -45,11 +46,8 @@ function App() {
               path="/residence-application"
               element={<ResidencePermitApplication />}
             ></Route>
-             <Route 
-              exact
-              path="/visits"
-              element={<VisitsPage />}
-            ></Route>
+            <Route exact path="/visits" element={<VisitsPage />}></Route>
+            <Route exact path="/visit" element={<VisitPage />}></Route>
             <Route path="*" element={<Navigate to="/login" />}></Route>
           </Routes>
         </div>

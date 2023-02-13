@@ -205,7 +205,7 @@ const Dashboard = () => {
   const maxPages =
     (visits.length + (visa.status ? 1 : 0)) % 6 === 0
       ? (visits.length + (visa.status ? 1 : 0)) / 6
-      : Math.ceil((visits.length + (visa.status ? 1 : 0)) / 6) + 1;
+      : Math.ceil((visits.length + (visa.status ? 1 : 0)) / 6);
   const renderPagination = () => {
     const totalPages = maxPages;
     const pagesToDisplay = [];
