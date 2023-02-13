@@ -1,0 +1,52 @@
+.error-header {
+  color: red;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.account-info-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  .info-line {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .account-info-container {
+    display: flex;
+    margin-top: 30px;
+    width: 50%;
+    height: 80%;
+    flex-direction: column;
+    align-items: left;
+    gap: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px 50px;
+    .info-line {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .buttons-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      
+      .edit-button {
+        width: 100px;
+        height: 50px;
+        background-color: #4caf50;
+        color: white;
+        border-radius: 5px;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

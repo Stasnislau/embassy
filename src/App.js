@@ -7,6 +7,7 @@ import {
   Routes,
 } from "react-router-dom";
 
+import AccountPage from "../src/Pages/AccountInfoPage";
 import CreateAccountPage from "../src/Pages/CreateAccountPage";
 import Dashboard from "../src/Pages/Dashboard";
 import Footer from "../src/Components/Footer";
@@ -46,6 +47,7 @@ function App() {
               path="/residence-application"
               element={<ResidencePermitApplication />}
             ></Route>
+            <Route exact path="/account" element={<AccountPage />}></Route>
             <Route exact path="/visits" element={<VisitsPage />}></Route>
             <Route exact path="/visit" element={<VisitPage />}></Route>
             <Route path="*" element={<Navigate to="/login" />}></Route>
