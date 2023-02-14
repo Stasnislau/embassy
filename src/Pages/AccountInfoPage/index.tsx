@@ -10,7 +10,7 @@ import TextError from "../../Components/TextError";
 import { useNavigate } from "react-router-dom";
 
 const AccountInfoPage = (accountId: number) => {
-  const account = {
+  const [account, setAccount] = useState({
     id: 1,
     name: "John",
     surname: "Doe",
@@ -24,7 +24,7 @@ const AccountInfoPage = (accountId: number) => {
     passportNumber: "123456789",
     passportExpirationDate: "2020-01-01",
     passportIssuingCountry: "Some country",
-  };
+  });
   const found = true;
   const navigate = useNavigate();
   const [edit, setEdit] = useState(false);
@@ -118,6 +118,22 @@ const AccountInfoPage = (accountId: number) => {
             }}
             onSubmit={(values) => {
               console.log(values);
+              setAccount({
+                id: 1,
+                name: values.name,
+                surname: values.surname,
+                email: values.email,
+                dateOfBirth: values.dateOfBirth,
+                phoneNumber: values.phoneNumber,
+                address: values.address,
+                city: values.city,
+                country: values.country,
+                zipCode: values.zipCode,
+                passportNumber: values.passportNumber,
+                passportExpirationDate: values.passportExpirationDate,
+                passportIssuingCountry: values.passportIssuingCountry,
+              });
+              setEdit(false);
             }}
             validationSchema={Yup.object().shape({
               name: Yup.string().required("Name is required"),
