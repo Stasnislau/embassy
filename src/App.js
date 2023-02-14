@@ -14,6 +14,7 @@ import Footer from "../src/Components/Footer";
 import ForgotPasswordPage from "../src/Pages/ForgotPasswordPage";
 import LoginPage from "../src/Pages/LoginPage";
 import React from "react";
+import ResidenceInfoPage from "../src/Pages/InformationPages/ResidenceInfoPage";
 import ResidencePermitApplication from "../src/Pages/ResidencePermitApplication";
 import VisaApplication from "../src/Pages/VisaApplication";
 import VisaInfoPage from "../src/Pages/InformationPages/VisaInfoPage";
@@ -52,6 +53,12 @@ function App() {
             <Route exact path="/visits" element={<VisitsPage />}></Route>
             <Route exact path="/visit" element={<VisitPage />}></Route>
             <Route exact path="/visa-info" element={<VisaInfoPage />}></Route>
+            <Route
+              exact
+              path="/residence-info"
+              element={<ResidenceInfoPage />}
+            ></Route>
+
             <Route path="*" element={<Navigate to="/login" />}></Route>
           </Routes>
         </div>
