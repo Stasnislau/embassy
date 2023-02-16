@@ -6,6 +6,8 @@
   font-size: 18px;
   font-weight: 600;
   justify-content: space-around;
+  cursor: pointer;
+  
   .residence-permit-button-container {
     position: relative;
     width: 100%;
@@ -46,6 +48,7 @@
     justify-content: space-evenly;
     width: 100%;
     list-style: none;
+    cursor: pointer;
 
     .residence-permit-menu-item {
       width: 100%;
