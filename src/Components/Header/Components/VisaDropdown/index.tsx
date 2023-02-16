@@ -2,10 +2,12 @@ import "./index.scss";
 
 import DropdownDown from "../../../../Pictures/arrowDown.svg";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const VisaDropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const Navigate = useNavigate();
   return (
     <div
       className="visa-menu-container"
@@ -32,9 +34,30 @@ const VisaDropdownMenu = () => {
       </div>
       {isOpen && (
         <div className="visa-dropdown-menu">
-          <div className="visa-dropdown-menu-item">Option 1</div>
-          <div className="visa-dropdown-menu-item">Option 2</div>
-          <div className="visa-dropdown-menu-item">Option 3</div>
+          <button
+            className="visa-dropdown-menu-item"
+            onClick={() => {
+              Navigate("/visa-info");
+            }}
+          >
+            About the Visa
+          </button>
+          <button
+            className="visa-dropdown-menu-item"
+            onClick={() => {
+              Navigate("/visa-application");
+            }}
+          >
+            Apply for the Visa
+          </button>
+          <button
+            className="visa-dropdown-menu-item"
+            onClick={() => {
+              Navigate("/visa-cases");
+            }}
+          >
+            My visa cases
+          </button>
         </div>
       )}
     </div>

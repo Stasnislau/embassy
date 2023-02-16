@@ -45,7 +45,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    width: 100%;
+    width: 180%;
     list-style: none;
 
     .visa-dropdown-menu-item {
@@ -53,7 +53,10 @@
       height: fit-content;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      border: none;
+      background-color: inherit;
+      color: #333;
       &:hover {
         background-color: #f2f2f2;
       }
