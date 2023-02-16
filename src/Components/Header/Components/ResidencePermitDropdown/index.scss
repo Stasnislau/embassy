@@ -47,18 +47,22 @@
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-    min-height: 15vh;
+    min-height: 20vh;
     list-style: none;
     cursor: pointer;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
     .residence-permit-menu-item {
       width: 100%;
       height: fit-content;
       display: flex;
       align-items: center;
+      text-align: left;
       border: none;
       background-color: inherit;
-      flex: 1; 
+      font-size: 18px;
+      font-weight: 600;
+      flex: 1;
       color: #333;
       &:hover {
         background-color: #d4f8ff;
