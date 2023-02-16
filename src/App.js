@@ -18,6 +18,7 @@ import ResidenceInfoPage from "../src/Pages/InformationPages/ResidenceInfoPage";
 import ResidencePermitApplication from "../src/Pages/ResidencePermitApplication";
 import VisaApplication from "../src/Pages/VisaApplication";
 import VisaInfoPage from "../src/Pages/InformationPages/VisaInfoPage";
+import VisaPage from "../src/Pages/VisaPage";
 import VisitPage from "../src/Pages/VisitPage";
 import VisitsPage from "../src/Pages/Visits";
 
@@ -58,6 +59,7 @@ function App() {
               path="/residence-info"
               element={<ResidenceInfoPage />}
             ></Route>
+            <Route exact path="/visa" element={<VisaPage />}></Route>
 
             <Route path="*" element={<Navigate to="/login" />}></Route>
           </Routes>
