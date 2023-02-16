@@ -35,48 +35,40 @@ const DropdownAccountMenu = () => {
         </div>
 
         {isOpen && (
-          <ul className="dropdown-account-menu">
-            <li className="dropdown-account-menu-item">
-              <button
-                className="dropdown-account-menu-item-button"
-                onClick={() => {
-                  console.log("test1");
-                }}
-              >
-                Your information
-              </button>
-            </li>
-            <li className="dropdown-account-menu-item">
-              <button
-                className="dropdown-account-menu-item-button"
-                onClick={() => {
-                  console.log("test2");
-                }}
-              >
-                Your cases
-              </button>
-            </li>
-            <li className="dropdown-account-menu-item">
-              <button
-                className="dropdown-account-menu-item-button"
-                onClick={() => {
-                  console.log("test3");
-                }}
-              >
-                Visit management
-              </button>
-            </li>
-            <li className="dropdown-account-menu-item">
-              <button
-                className="dropdown-account-menu-item-button"
-                onClick={() => {
-                  navigate("/login");
-                }}
-              >
-                Log out
-              </button>
-            </li>
-          </ul>
+          <div className="dropdown-account-menu">
+            <button
+              className="dropdown-account-menu-item"
+              onClick={() => {
+                navigate("/account");
+              }}
+            >
+              Your information
+            </button>
+            <button
+              className="dropdown-account-menu-item"
+              onClick={() => {
+                navigate("/dashboard");
+              }}
+            >
+              Your cases
+            </button>
+            <button
+              className="dropdown-account-menu-item"
+              onClick={() => {
+                navigate("/visits");
+              }}
+            >
+              Visit management
+            </button>
+            <button
+              className="dropdown-account-menu-item"
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Log out
+            </button>
+          </div>
         )}
       </div>
     </div>
