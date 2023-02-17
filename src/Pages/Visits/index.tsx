@@ -3,7 +3,7 @@ import "./index.scss";
 import * as Yup from "yup";
 
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Header from "../../Components/Header";
 import Modal from "@mui/material/Modal";
@@ -19,7 +19,7 @@ interface visitInterface {
 }
 
 const VisitsPage = () => {
-  const [visits, setVisits] = useState([
+  const visits: visitInterface[] = [
     {
       date: "2020-12-12",
       time: "12:00",
@@ -194,12 +194,13 @@ const VisitsPage = () => {
       location: "29 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
-  ]);
+  ];
   const [maxPages, setMaxPages] = useState(Math.ceil(visits.length / 6));
 
   const [currentPage, setCurrentPage] = useState(1);
+
   const RenderPagination = () => {
-    const [pagesToDisplay, setPagesToDisplay] = useState([]);
+    const [pagesToDisplay, setPagesToDisplay] = useState<JSX.Element[]>([]);
     const getTemplate = (index = 0) => {
       return (
         <button
@@ -208,51 +209,60 @@ const VisitsPage = () => {
               ? "pagination-item active-pagination-item"
               : "pagination-item"
           }
-          onClick={() => setCurrentPage(index)}
+          onClick={() => {
+            setCurrentPage(index);
+          }}
         >
           {index}
         </button>
       );
     };
-    if (maxPages < 5)
+    const temp: JSX.Element[] = [];
+    if (maxPages < 5) {
       for (let i = 1; i <= maxPages; i++) {
-        setPagesToDisplay((prev) => [...prev, getTemplate(i)]);
+        temp.push(getTemplate(i));
       }
-    else if (currentPage === 1) {
+    } else if (currentPage === 1) {
       for (let i = 1; i <= 4; i++) {
-        pagesToDisplay.push(getTemplate(i));
+        temp.push(getTemplate(i));
       }
-      pagesToDisplay.push(getTemplate(maxPages));
+      temp.push(getTemplate(maxPages));
     } else if (currentPage === maxPages) {
-      pagesToDisplay.push(getTemplate(1));
+      temp.push(getTemplate(1));
       for (let i = 3; i >= 1; i--) {
-        pagesToDisplay.push(getTemplate(maxPages - i));
+        temp.push(getTemplate(maxPages - i));
       }
-      pagesToDisplay.push(getTemplate(maxPages));
+      temp.push(getTemplate(maxPages));
     } else if (currentPage === 2) {
-      pagesToDisplay.push(getTemplate(1));
-      for (let i = 1; i <= 3; i++) {
-        pagesToDisplay.push(getTemplate(currentPage + i - 1));
+      temp.push(getTemplate(1));
+      for (let i = 0; i <= 2; i++) {
+        temp.push(getTemplate(currentPage + i));
       }
-      pagesToDisplay.push(getTemplate(maxPages));
+      temp.push(getTemplate(maxPages));
     } else if (currentPage === maxPages - 1) {
-      pagesToDisplay.push(getTemplate(1));
+      temp.push(getTemplate(1));
       for (let i = 2; i >= 0; i--) {
-        pagesToDisplay.push(getTemplate(currentPage - i));
+        temp.push(getTemplate(currentPage - i));
       }
-      pagesToDisplay.push(getTemplate(maxPages));
+      temp.push(getTemplate(maxPages));
     } else {
-      pagesToDisplay.push(getTemplate(1));
-      pagesToDisplay.push(getTemplate(currentPage - 1));
-      pagesToDisplay.push(getTemplate(currentPage));
-      pagesToDisplay.push(getTemplate(currentPage + 1));
-      pagesToDisplay.push(getTemplate(maxPages));
+      temp.push(getTemplate(1));
+      temp.push(getTemplate(currentPage - 1));
+      temp.push(getTemplate(currentPage));
+      temp.push(getTemplate(currentPage + 1));
+      temp.push(getTemplate(maxPages));
     }
 
+    useEffect(() => {
+      setPagesToDisplay(temp);
+    }, [currentPage, maxPages]);
     return pagesToDisplay.map((item) => {
       return item;
     });
   };
+  useEffect(() => {
+    setMaxPages(Math.ceil(visits.length / 6));
+  }, [visits.length]);
   const validationSchema = Yup.object().shape({
     date: Yup.string().required("Required"),
     time: Yup.string().required("Required"),
@@ -273,8 +283,9 @@ const VisitsPage = () => {
     description: "Submission of new documents",
   };
   const onSubmit = (values: visitInterface) => {
-    setVisits([...visits, values]);
-    setMaxPages(Math.ceil(visits.length / 6));
+    console.log(visits, "before");
+    visits.push(values);
+    console.log(visits, "after");
     setOpenedNewVisit(false);
   };
   const [openedNewVisit, setOpenedNewVisit] = useState(false);
@@ -330,7 +341,6 @@ const VisitsPage = () => {
                       <div className="form-control">
                         <label htmlFor="date">Date</label>
                         <Field
-                          defaultValue={new Date().toISOString().slice(0, 10)}
                           type="date"
                           id="date"
                           name="date"
@@ -341,7 +351,6 @@ const VisitsPage = () => {
                       <div className="form-control">
                         <label htmlFor="time">Time</label>
                         <Field
-                          defaultValue="09:00:00"
                           type="time"
                           id="time"
                           min="09:00:00"
