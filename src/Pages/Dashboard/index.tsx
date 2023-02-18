@@ -1,6 +1,7 @@
 import "./index.scss";
 
 import Header from "../../Components/Header";
+import PaginationComponent from "../../Components/Pagination";
 import React from "react";
 import VisaCard from "../../Components/EventCards/VisaCard";
 import VisitCard from "../../Components/EventCards/VisitCard";
@@ -206,58 +207,6 @@ const Dashboard = () => {
     (visits.length + (visa.status ? 1 : 0)) % 6 === 0
       ? (visits.length + (visa.status ? 1 : 0)) / 6
       : Math.ceil((visits.length + (visa.status ? 1 : 0)) / 6);
-  const renderPagination = () => {
-    const totalPages = maxPages;
-    const pagesToDisplay = [];
-    const getTemplate = (index = 0) => {
-      return (
-        <button
-          className={ index === currentPage ? "pagination-item active-pagination-item" : "pagination-item"}
-          onClick={() => setCurrentPage(index)}
-        >
-          {index}
-        </button>
-      );
-    };
-    if (totalPages < 5)
-      for (let i = 1; i <= totalPages; i++) {
-        pagesToDisplay.push(getTemplate(i));
-      }
-    else if (currentPage === 1) {
-      for (let i = 1; i <= 4; i++) {
-        pagesToDisplay.push(getTemplate(i));
-      }
-      pagesToDisplay.push(getTemplate(totalPages));
-    } else if (currentPage === totalPages) {
-      pagesToDisplay.push(getTemplate(1));
-      for (let i = 3; i >= 1; i--) {
-        pagesToDisplay.push(getTemplate(totalPages - i));
-      }
-      pagesToDisplay.push(getTemplate(totalPages));
-    } else if (currentPage === 2) {
-      pagesToDisplay.push(getTemplate(1));
-      for (let i = 1; i <= 3; i++) {
-        pagesToDisplay.push(getTemplate(currentPage + i - 1));
-      }
-      pagesToDisplay.push(getTemplate(totalPages));
-    } else if (currentPage === totalPages - 1) {
-      pagesToDisplay.push(getTemplate(1));
-      for (let i = 2; i >= 0; i--) {
-        pagesToDisplay.push(getTemplate(currentPage - i));
-      }
-      pagesToDisplay.push(getTemplate(totalPages));
-    } else {
-      pagesToDisplay.push(getTemplate(1));
-      pagesToDisplay.push(getTemplate(currentPage - 1));
-      pagesToDisplay.push(getTemplate(currentPage));
-      pagesToDisplay.push(getTemplate(currentPage + 1));
-      pagesToDisplay.push(getTemplate(totalPages));
-    }
-
-    return pagesToDisplay.map((item) => {
-      return item;
-    });
-  };
   const checkNumberToSliceBegin = () => {
     if (visa.status)
       if (currentPage === 1) {
@@ -305,7 +254,11 @@ const Dashboard = () => {
               );
             })}
         </div>
-        <div className="dashboard-pagination">{renderPagination()}</div>
+        <PaginationComponent
+          maxPages={maxPages}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     </div>
   );
