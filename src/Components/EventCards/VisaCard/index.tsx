@@ -1,4 +1,5 @@
 import "./index.scss";
+import "./../index.scss";
 
 import React from "react";
 
@@ -11,7 +12,7 @@ interface VisaCardProps {
   };
 }
 
-const VisaCard = ({props}: VisaCardProps) => {
+const VisaCard = ({ props }: VisaCardProps) => {
   return (
     <button className="visa-card">
       <h1> Visa </h1>
@@ -26,7 +27,16 @@ const VisaCard = ({props}: VisaCardProps) => {
         </div>
         <div className="visa-card-status">
           <p>
-            Status: <b>{props.status}</b>
+            Status:{" "}
+            <b
+              className={
+                props.status !== "Rejected" && props.status !== "Approved"
+                  ? "card-status-pending"
+                  : "card-status-over"
+              }
+            >
+              {props.status}
+            </b>
           </p>
         </div>
         <div className="visa-card-description">
