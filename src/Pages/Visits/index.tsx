@@ -222,11 +222,8 @@ const VisitsPage = () => {
     description: "Submission of new documents",
   };
   const onSubmit = (values: visitInterface) => {
-    console.log(visits, "before");
-    console.log(values, "values");
     setVisits((prevVisits) => [...prevVisits, values]);
     setMaxPages(Math.ceil(visits.length / 6));
-    console.log(visits, "after");
     setOpenedNewVisit(false);
   };
   const [openedNewVisit, setOpenedNewVisit] = useState(false);

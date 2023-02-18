@@ -4,7 +4,6 @@ import "./index.scss";
 import React from "react";
 
 interface ResidencePermitCardProps {
-  status: string;
   props: {
     dateOfSubmission: string;
     dateOfDecision: string;
@@ -13,7 +12,7 @@ interface ResidencePermitCardProps {
   };
 }
 
-const ResidencePermitCard = (props: ResidencePermitCardProps) => {
+const ResidencePermitCard = ({ props }: ResidencePermitCardProps) => {
   return (
     <button className="residence-permit-card">
       <h1> Residence Permit </h1>
