@@ -58,62 +58,60 @@ const VisaPage = (id: number) => {
           <h1 className="visa-page-title">Visa Application</h1>
           <hr className="visa-page-line" />
           <div className="visa-fields-container">
-            <div className="visa-field">
-              <div className="visa-field status-field">
-                {" "}
-                Status: {visa.status}
-              </div>
-              <div className="visa-page-subtitle">Personal Information </div>
-              <div className="visa-field name-field">
-                First Name: {visa.firstName}
-              </div>
-              <div className="visa-field surname-field">
-                {" "}
-                Last Name: {visa.lastName}
-              </div>
-              <div className="visa-field email-field"> Email: {visa.email}</div>
-              <div className="visa-field phone-field"> Phone: {visa.phone}</div>
-              <div className="visa-field address-field">
-                {" "}
-                Address: {visa.address}
-              </div>
-              <div className="visa-field city-field"> City: {visa.city}</div>
-              <div className="visa-field state-field"> State: {visa.state}</div>
-              <div className="visa-field zip-field"> Zip: {visa.zip}</div>
-              <div className="visa-field country-field">
-                {" "}
-                Country: {visa.country}
-              </div>
-              <div className="visa-page-subtitle">Passport Information </div>
-              <div className="visa-field passport-number-field">
-                {" "}
-                Passport Number: {visa.passportNumber}
-              </div>
-              <div className="visa-field passport-expiration-field">
-                {" "}
-                Passport Expiration: {visa.passportExpiration}
-              </div>
-              <div className="visa-field passport-country-field">
-                {" "}
-                Passport Country: {visa.passportCountry}
-              </div>
-              <div className="visa-page-subtitle">Visa Information </div>
-              <div className="visa-field visa-type-field">
-                {" "}
-                Visa Type: {visa.visaType}
-              </div>
-              <div className="visa-field visa-duration-field">
-                {" "}
-                Visa Duration: {visa.visaDuration}
-              </div>
-              <div className="visa-field visa-date-field">
-                {" "}
-                Visa Date: {visa.visaDate}
-              </div>
-              <div className="visa-field comments-field">
-                {" "}
-                Comments: {visa.comments}
-              </div>
+            <div className="visa-field status-field">
+              {" "}
+              Status: {visa.status}
+            </div>
+            <div className="visa-page-subtitle">Personal Information </div>
+            <div className="visa-field name-field">
+              First Name: {visa.firstName}
+            </div>
+            <div className="visa-field surname-field">
+              {" "}
+              Last Name: {visa.lastName}
+            </div>
+            <div className="visa-field email-field"> Email: {visa.email}</div>
+            <div className="visa-field phone-field"> Phone: {visa.phone}</div>
+            <div className="visa-field address-field">
+              {" "}
+              Address: {visa.address}
+            </div>
+            <div className="visa-field city-field"> City: {visa.city}</div>
+            <div className="visa-field state-field"> State: {visa.state}</div>
+            <div className="visa-field zip-field"> Zip: {visa.zip}</div>
+            <div className="visa-field country-field">
+              {" "}
+              Country: {visa.country}
+            </div>
+            <div className="visa-page-subtitle">Passport Information </div>
+            <div className="visa-field passport-number-field">
+              {" "}
+              Passport Number: {visa.passportNumber}
+            </div>
+            <div className="visa-field passport-expiration-field">
+              {" "}
+              Passport Expiration: {visa.passportExpiration}
+            </div>
+            <div className="visa-field passport-country-field">
+              {" "}
+              Passport Country: {visa.passportCountry}
+            </div>
+            <div className="visa-page-subtitle">Visa Information </div>
+            <div className="visa-field visa-type-field">
+              {" "}
+              Visa Type: {visa.visaType}
+            </div>
+            <div className="visa-field visa-duration-field">
+              {" "}
+              Visa Duration: {visa.visaDuration}
+            </div>
+            <div className="visa-field visa-date-field">
+              {" "}
+              Visa Date: {visa.visaDate}
+            </div>
+            <div className="visa-field comments-field">
+              {" "}
+              Comments: {visa.comments}
             </div>
           </div>
           <div className="delete-button-container">
@@ -128,6 +126,9 @@ const VisaPage = (id: number) => {
           </div>
         </div>
       )}
+      {!found && !open && <h1 className="error-header">
+        Visa not found 
+        </h1>}
 
       <SurenessModal
         open={open}

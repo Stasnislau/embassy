@@ -29,9 +29,7 @@ const VisitPage = (id: number) => {
           <hr className="visit-page-line" />
           <div className="visit-fields-container">
             <div className="visit-field">
-              <div className="visit-page-subtitle">
-                Personal Information{" "}
-              </div>
+              <div className="visit-page-subtitle">Personal Information </div>
               <div className="visit-field name-field">Name: {visit.name}</div>
               <div className="visit-field surname-field">
                 {" "}
@@ -42,14 +40,8 @@ const VisitPage = (id: number) => {
                 Email: {visit.email}
               </div>
               <div className="visit-page-subtitle">Visit Information </div>
-              <div className="visit-field date-field">
-                {" "}
-                Date: {visit.date}
-              </div>
-              <div className="visit-field time-field">
-                {" "}
-                Time: {visit.time}
-              </div>
+              <div className="visit-field date-field"> Date: {visit.date}</div>
+              <div className="visit-field time-field"> Time: {visit.time}</div>
               <div className="visit-field location-field">
                 {" "}
                 Location: {visit.location}
@@ -61,7 +53,7 @@ const VisitPage = (id: number) => {
             </div>
 
             <div className="delete-button-container">
-              <button 
+              <button
                 className="delete-button"
                 onClick={() => {
                   setOpen(true);
@@ -73,20 +65,18 @@ const VisitPage = (id: number) => {
           </div>
         </div>
       )}
-      {open && (
-        <SurenessModal
-          open={open}
-          handleClose={() => {
-            setOpen(false);
-          }}
-          handleConfirm={() => {
-            // delete visit
-            setOpen(false);
-          }}
-          text="delete this visit"
-        />
-      )}
-      {!found && !open && <h1 className="error-header">There no such visit</h1>}
+      <SurenessModal
+        open={open}
+        handleClose={() => {
+          setOpen(false);
+        }}
+        handleConfirm={() => {
+          // delete visit
+          setOpen(false);
+        }}
+        text="delete this visit"
+      />
+      {!found && <h1 className="error-header">There no such visit</h1>}
     </div>
   );
 };
