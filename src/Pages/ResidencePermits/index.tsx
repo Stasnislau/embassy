@@ -15,9 +15,7 @@ interface ResidencePermitProps {
 }
 
 const ResidencePermitsPage = () => {
-  const [residencePermits, setResidencePermits] = useState<
-    ResidencePermitProps[]
-  >([
+  const residencePermits: ResidencePermitProps[] = [
     {
       id: 1,
       dateOfSubmission: "2020-12-12",
@@ -39,7 +37,7 @@ const ResidencePermitsPage = () => {
       status: "Approved",
       description: "Description",
     },
-  ]);
+  ];
   const maxPages = Math.ceil(residencePermits.length / 6);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -63,7 +61,7 @@ const ResidencePermitsPage = () => {
                 <div className="residence-permits-page-box">
                   <ResidencePermitCard props={residencePermit} />
                 </div>
-              )
+              );
             })}
         </div>
         <PaginationComponent
