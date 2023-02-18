@@ -6,8 +6,8 @@ import Header from "../../Components/Header";
 import SurenessModal from "../../Components/SurenessModal";
 
 interface VisaInterface {
-  firstName: string;
-  lastName: string;
+  name: string;
+  surname: string;
   email: string;
   phone: string;
   address: string;
@@ -28,8 +28,8 @@ interface VisaInterface {
 const VisaPage = (id: number) => {
   // try catch for extracting and finding id
   const visa: VisaInterface = {
-    firstName: "John",
-    lastName: "Doe",
+    name: "John",
+    surname: "Doe",
     email: "john.doe@example.com",
     phone: "+1 123 456 7890",
     address: "123 Main St",
@@ -60,58 +60,77 @@ const VisaPage = (id: number) => {
           <div className="visa-fields-container">
             <div className="visa-field status-field">
               {" "}
-              Status: {visa.status}
+              Status: <span className="user-info">{visa.status}</span>
             </div>
             <div className="visa-page-subtitle">Personal Information </div>
             <div className="visa-field name-field">
-              First Name: {visa.firstName}
+              First Name: <span className="user-info">{visa.name}</span>
             </div>
             <div className="visa-field surname-field">
               {" "}
-              Last Name: {visa.lastName}
+              Last Name: <span className="user-info">{visa.surname}</span>
             </div>
-            <div className="visa-field email-field"> Email: {visa.email}</div>
-            <div className="visa-field phone-field"> Phone: {visa.phone}</div>
+            <div className="visa-field email-field">
+              {" "}
+              Email: <span className="user-info">{visa.email}</span>
+            </div>
+            <div className="visa-field phone-field">
+              {" "}
+              Phone: <span className="user-info">{visa.phone}</span>
+            </div>
             <div className="visa-field address-field">
               {" "}
-              Address: {visa.address}
+              Address: <span className="user-info">{visa.address}</span>
             </div>
-            <div className="visa-field city-field"> City: {visa.city}</div>
-            <div className="visa-field state-field"> State: {visa.state}</div>
-            <div className="visa-field zip-field"> Zip: {visa.zip}</div>
+            <div className="visa-field city-field">
+              {" "}
+              City: <span className="user-info">{visa.city}</span>
+            </div>
+            <div className="visa-field state-field">
+              {" "}
+              State: <span className="user-info">{visa.state}</span>
+            </div>
+            <div className="visa-field zip-field">
+              {" "}
+              Zip: <span className="user-info">{visa.zip}</span>
+            </div>
             <div className="visa-field country-field">
               {" "}
-              Country: {visa.country}
+              Country: <span className="user-info">{visa.country}</span>
             </div>
             <div className="visa-page-subtitle">Passport Information </div>
             <div className="visa-field passport-number-field">
               {" "}
-              Passport Number: {visa.passportNumber}
+              Passport Number:{" "}
+              <span className="user-info">{visa.passportNumber}</span>
             </div>
             <div className="visa-field passport-expiration-field">
               {" "}
-              Passport Expiration: {visa.passportExpiration}
+              Passport Expiration:{" "}
+              <span className="user-info">{visa.passportExpiration}</span>
             </div>
             <div className="visa-field passport-country-field">
               {" "}
-              Passport Country: {visa.passportCountry}
+              Passport Country:{" "}
+              <span className="user-info">{visa.passportCountry}</span>
             </div>
             <div className="visa-page-subtitle">Visa Information </div>
             <div className="visa-field visa-type-field">
               {" "}
-              Visa Type: {visa.visaType}
+              Visa Type: <span className="user-info">{visa.visaType}</span>
             </div>
             <div className="visa-field visa-duration-field">
               {" "}
-              Visa Duration: {visa.visaDuration}
+              Visa Duration:{" "}
+              <span className="user-info">{visa.visaDuration}</span>
             </div>
             <div className="visa-field visa-date-field">
               {" "}
-              Visa Date: {visa.visaDate}
+              Visa Date: <span className="user-info">{visa.visaDate}</span>
             </div>
             <div className="visa-field comments-field">
               {" "}
-              Comments: {visa.comments}
+              Comments: <span className="user-info">{visa.comments}</span>
             </div>
           </div>
           <div className="delete-button-container">
@@ -126,9 +145,7 @@ const VisaPage = (id: number) => {
           </div>
         </div>
       )}
-      {!found && !open && <h1 className="error-header">
-        Visa not found 
-        </h1>}
+      {!found && !open && <h1 className="error-header">Visa not found</h1>}
 
       <SurenessModal
         open={open}

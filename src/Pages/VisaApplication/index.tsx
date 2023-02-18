@@ -264,7 +264,7 @@ const VisaApplication = () => {
                   </Field>
                 </div>
                 <div className="form-control">
-                  <label htmlFor="visaDuration">Visa Duration</label>
+                  <label htmlFor="visaDuration">Visa Duration</label> 
                   <Field
                     className="input-selector"
                     component="select"
@@ -340,3 +340,5 @@ const VisaApplication = () => {
   );
 };
 export default VisaApplication;
+
+// TODO: use React Calendar for date input

@@ -6,8 +6,8 @@ import Header from "../../Components/Header";
 import SurenessModal from "../../Components/SurenessModal";
 
 interface ResidencePermitInterface {
-  firstName: string;
-  lastName: string;
+  name: string;
+  surname: string;
   email: string;
   phoneNumber: string;
   birthDate: string;
@@ -28,22 +28,22 @@ interface ResidencePermitInterface {
 const ResidencePermitPage = (id: number) => {
   // try catch for extracting and finding id
   const residencePermit: ResidencePermitInterface = {
-    firstName: "John",
-    lastName: "Doe",
-    email: "",
-    phoneNumber: "",
-    birthDate: "",
-    birthPlace: "",
-    address: "",
-    city: "",
-    country: "",
-    zipCode: "",
-    residencePermitType: "",
-    passportNumber: "",
-    passportIssuingCountry: "",
-    passportExpirationDate: "",
-    passportIssuingDate: "",
-    comments: "",
+    name: "John",
+    surname: "Doe",
+    email: "john.doe@example.com",
+    phoneNumber: "123-456-7890",
+    birthDate: "01/01/1990",
+    birthPlace: "New York, USA",
+    address: "123 Main Street",
+    city: "New York",
+    country: "USA",
+    zipCode: "10001",
+    residencePermitType: "Work Permit",
+    passportNumber: "123456789",
+    passportIssuingCountry: "USA",
+    passportExpirationDate: "12/31/2025",
+    passportIssuingDate: "12/31/2015",
+    comments: "N/A",
     status: "Pending",
   };
   const found = true;
@@ -59,96 +59,116 @@ const ResidencePermitPage = (id: number) => {
           <hr className="residence-permit-page-line" />
           <div className="residence-permit-fields-container">
             <div className="residence-permit-field status-field">
-              <label className="residence-permit-field-label">Status</label>{" "}
-              Status: {residencePermit.status}
+              {" "}
+              Status:{" "}
+              <span className="user-info">{residencePermit.status}</span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">First Name</label>{" "}
-              {residencePermit.firstName}
+            <div className="residence-permit-page-subtitle">
+              Personal Information{" "}
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">Last Name</label>{" "}
-              {residencePermit.lastName}
+            <div className="residence-permit-field name-field">
+              {" "}
+              First Name:{" "}
+              <span className="user-info">{residencePermit.name}</span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">Email</label>{" "}
-              {residencePermit.email}
+            <div className="residence-permit-field surname-field">
+              {" "}
+              Last Name:{" "}
+              <span className="user-info">{residencePermit.surname}</span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">
-                Phone Number
-              </label>{" "}
-              {residencePermit.phoneNumber}
+            <div className="residence-permit-field email-field">
+              {" "}
+              Email: <span className="user-info">{residencePermit.email}</span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">Birth Date</label>{" "}
-              {residencePermit.birthDate}
+            <div className="residence-permit-field phone-number-field">
+              {" "}
+              Phone Number:{" "}
+              <span className="user-info">{residencePermit.phoneNumber}</span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">
-                Birth Place
-              </label>{" "}
-              {residencePermit.birthPlace}
+            <div className="residence-permit-field birth-date-field">
+              {" "}
+              Birth Date:{" "}
+              <span className="user-info">{residencePermit.birthDate}</span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">Address</label>{" "}
-              {residencePermit.address}
+            <div className="residence-permit-field birth-place-field">
+              {" "}
+              Birth Place:{" "}
+              <span className="user-info">{residencePermit.birthPlace}</span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">City</label>{" "}
-              {residencePermit.city}
+            <div className="residence-permit-page-subtitle">
+              Passport Information{" "}
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">Country</label>{" "}
-              {residencePermit.country}
+            <div className="residence-permit-field passport-number-field">
+              {" "}
+              Passport Number:{" "}
+              <span className="user-info">
+                {residencePermit.passportNumber}
+              </span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">Zip Code</label>{" "}
-              {residencePermit.zipCode}
+            <div className="residence-permit-field passport-issuing-country-field">
+              {" "}
+              Passport Issuing Country:{" "}
+              <span className="user-info">
+                {residencePermit.passportIssuingCountry}
+              </span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">
-                Residence Permit Type
-              </label>{" "}
-              {residencePermit.residencePermitType}
+            <div className="residence-permit-field passport-expiration-date-field">
+              {" "}
+              Passport Expiration Date:{" "}
+              <span className="user-info">
+                {residencePermit.passportExpirationDate}
+              </span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">
-                Passport Number
-              </label>{" "}
-              {residencePermit.passportNumber}
+            <div className="residence-permit-field passport-issuing-date-field">
+              {" "}
+              Passport Issuing Date:{" "}
+              <span className="user-info">
+                {residencePermit.passportIssuingDate}
+              </span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">
-                Passport Issuing Country
-              </label>{" "}
-              {residencePermit.passportIssuingCountry}
+            <div className="residence-permit-page-subtitle">
+              Address Information{" "}
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">
-                Passport Expiration Date
-              </label>{" "}
-              {residencePermit.passportExpirationDate}
+            <div className="residence-permit-field address-field">
+              {" "}
+              Address:{" "}
+              <span className="user-info">{residencePermit.address}</span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">
-                Passport Issuing Date
-              </label>{" "}
-              {residencePermit.passportIssuingDate}
+            <div className="residence-permit-field city-field">
+              {" "}
+              City: <span className="user-info">{residencePermit.city}</span>
             </div>
-            <div className="residence-permit-field">
-              <label className="residence-permit-field-label">Comments</label>{" "}
-              {residencePermit.comments}
+            <div className="residence-permit-field country-field">
+              {" "}
+              Country:{" "}
+              <span className="user-info">{residencePermit.country}</span>
+            </div>
+            <div className="residence-permit-field zip-code-field">
+              {" "}
+              Zip Code:{" "}
+              <span className="user-info">{residencePermit.zipCode}</span>
+            </div>
+            <div className="residence-permit-page-subtitle">
+              Residence Permit Information{" "}
+            </div>
+            <div className="residence-permit-field residence-permit-type-field">
+              {" "}
+              Residence Permit Type:{" "}
+              <span className="user-info">
+                {residencePermit.residencePermitType}
+              </span>
+            </div>
+
+            <div className="residence-permit-field comments-field">
+              {" "}
+              Comments:{" "}
+              <span className="user-info">{residencePermit.comments}</span>
             </div>
           </div>
-          <div className="residence-permit-buttons-container">
-            <button
-              className="residence-permit-button"
-              onClick={() => setOpen(true)}
-            >
+          <div className="delete-button-container">
+            <button className="delete-button" onClick={() => setOpen(true)}>
               Delete
             </button>
-            <button className="residence-permit-button">Edit</button>
           </div>
         </div>
       )}

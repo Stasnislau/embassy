@@ -45,6 +45,9 @@
       text-align: center;
     }
     .residence-permit-field {
+      font-size: 1.2rem;
+    }
+    .user-info {
       font-size: 1.5rem;
       font-weight: 600;
     }
@@ -58,6 +61,17 @@
         background-color: red;
         color: white;
         border-radius: 5px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        &:hover {
+          background-color: #b71c1c;
+          scale: 1.01;
+          transition: 0.2s;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+        }
       }
     }
   }

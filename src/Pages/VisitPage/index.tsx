@@ -30,25 +30,34 @@ const VisitPage = (id: number) => {
           <div className="visit-fields-container">
             <div className="visit-field">
               <div className="visit-page-subtitle">Personal Information </div>
-              <div className="visit-field name-field">Name: {visit.name}</div>
+              <div className="visit-field name-field">
+                Name: <span className="user-info">{visit.name}</span>
+              </div>
               <div className="visit-field surname-field">
                 {" "}
-                Surname: {visit.surname}
+                Surname: <span className="user-info"> {visit.surname}</span>
               </div>
               <div className="visit-field email-field">
                 {" "}
-                Email: {visit.email}
+                Email: <span className="user-info"> {visit.email}</span>
               </div>
               <div className="visit-page-subtitle">Visit Information </div>
-              <div className="visit-field date-field"> Date: {visit.date}</div>
-              <div className="visit-field time-field"> Time: {visit.time}</div>
+              <div className="visit-field date-field">
+                {" "}
+                Date: <span className="user-info">{visit.date}</span>
+              </div>
+              <div className="visit-field time-field">
+                {" "}
+                Time: <span className="user-info">{visit.time}</span>
+              </div>
               <div className="visit-field location-field">
                 {" "}
-                Location: {visit.location}
+                Location: <span className="user-info">{visit.location}</span>
               </div>
               <div className="visit-field description-field">
                 {" "}
-                Description: {visit.description}
+                Description:{" "}
+                <span className="user-info">{visit.description}</span>
               </div>
             </div>
 
