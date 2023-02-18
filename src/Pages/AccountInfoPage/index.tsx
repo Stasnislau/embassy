@@ -72,7 +72,7 @@ const AccountInfoPage = (accountId: number) => {
               <b>Passport expiration date:</b> {account.passportExpirationDate}
             </div>
             <div className="info-line passport-issuing-country-line">
-              <b>Passport issuing country:</b> {account.passportIssuingCountry}
+              <b>Country of passport issue:</b> {account.passportIssuingCountry}
             </div>
           </div>
           <div className="buttons-container">
@@ -313,7 +313,7 @@ const AccountInfoPage = (accountId: number) => {
                   />
                 </div>
                 <div className="info-line passport-issuing-country-line">
-                  <b>Passport issuing country:</b>
+                  <b>Country of passport issue :</b>
                   <Field
                     className="input-field"
                     name="passportIssuingCountry"
@@ -338,7 +338,7 @@ const AccountInfoPage = (accountId: number) => {
                     setEdit(false);
                   }}
                 >
-                  Reset
+                  Cancel
                 </button>
               </div>
             </Form>
