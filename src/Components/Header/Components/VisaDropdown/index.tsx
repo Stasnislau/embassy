@@ -53,7 +53,7 @@ const VisaDropdownMenu = () => {
           <button
             className="visa-dropdown-menu-item"
             onClick={() => {
-              Navigate("/visa-cases");
+              Navigate("/visas");
             }}
           >
             My visa cases
