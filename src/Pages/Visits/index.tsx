@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 
 import Header from "../../Components/Header";
 import Modal from "@mui/material/Modal";
+import PaginationComponent from "../../Components/Pagination";
 import TextError from "../../Components/TextError";
 import VisitCard from "../../Components/EventCards/VisitCard";
 import plusIcon from "../../Pictures/plus.svg";
@@ -19,7 +20,7 @@ interface visitInterface {
 }
 
 const VisitsPage = () => {
-  const visits: visitInterface[] = [
+  const [visits, setVisits] = useState<visitInterface[]>([
     {
       date: "2020-12-12",
       time: "12:00",
@@ -194,72 +195,118 @@ const VisitsPage = () => {
       location: "29 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
-  ];
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "27 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "28 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "29 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "27 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "28 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "29 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "27 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "28 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "29 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "27 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "28 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "29 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "27 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "28 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "29 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "27 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "28 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+    {
+      date: "2020-12-12",
+      time: "12:00",
+      location: "29 Main Street, New York, NY 10001",
+      description: "Visit to submit new documents",
+    },
+  ]);
   const [maxPages, setMaxPages] = useState(Math.ceil(visits.length / 6));
-
   const [currentPage, setCurrentPage] = useState(1);
 
-  const RenderPagination = () => {
-    const [pagesToDisplay, setPagesToDisplay] = useState<JSX.Element[]>([]);
-    const getTemplate = (index = 0) => {
-      return (
-        <button
-          className={
-            index === currentPage
-              ? "pagination-item active-pagination-item"
-              : "pagination-item"
-          }
-          onClick={() => {
-            setCurrentPage(index);
-          }}
-        >
-          {index}
-        </button>
-      );
-    };
-    const temp: JSX.Element[] = [];
-    if (maxPages < 5) {
-      for (let i = 1; i <= maxPages; i++) {
-        temp.push(getTemplate(i));
-      }
-    } else if (currentPage === 1) {
-      for (let i = 1; i <= 4; i++) {
-        temp.push(getTemplate(i));
-      }
-      temp.push(getTemplate(maxPages));
-    } else if (currentPage === maxPages) {
-      temp.push(getTemplate(1));
-      for (let i = 3; i >= 1; i--) {
-        temp.push(getTemplate(maxPages - i));
-      }
-      temp.push(getTemplate(maxPages));
-    } else if (currentPage === 2) {
-      temp.push(getTemplate(1));
-      for (let i = 0; i <= 2; i++) {
-        temp.push(getTemplate(currentPage + i));
-      }
-      temp.push(getTemplate(maxPages));
-    } else if (currentPage === maxPages - 1) {
-      temp.push(getTemplate(1));
-      for (let i = 2; i >= 0; i--) {
-        temp.push(getTemplate(currentPage - i));
-      }
-      temp.push(getTemplate(maxPages));
-    } else {
-      temp.push(getTemplate(1));
-      temp.push(getTemplate(currentPage - 1));
-      temp.push(getTemplate(currentPage));
-      temp.push(getTemplate(currentPage + 1));
-      temp.push(getTemplate(maxPages));
-    }
-
-    useEffect(() => {
-      setPagesToDisplay(temp);
-    }, [currentPage, maxPages]);
-    return pagesToDisplay.map((item) => {
-      return item;
-    });
-  };
   useEffect(() => {
     setMaxPages(Math.ceil(visits.length / 6));
   }, [visits.length]);
@@ -284,7 +331,7 @@ const VisitsPage = () => {
   };
   const onSubmit = (values: visitInterface) => {
     console.log(visits, "before");
-    visits.push(values);
+    setVisits((prevVisits) => [...prevVisits, values]);
     console.log(visits, "after");
     setOpenedNewVisit(false);
   };
@@ -319,7 +366,11 @@ const VisitsPage = () => {
               );
             })}
         </div>
-        <div className="visits-pagination">{RenderPagination()}</div>
+        <PaginationComponent
+          maxPages={maxPages}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
 
         <Modal
           open={openedNewVisit}
