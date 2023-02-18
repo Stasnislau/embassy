@@ -2,6 +2,7 @@ import "./../index.scss";
 import "./index.scss";
 
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface ResidencePermitCardProps {
   props: {
@@ -13,8 +14,14 @@ interface ResidencePermitCardProps {
 }
 
 const ResidencePermitCard = ({ props }: ResidencePermitCardProps) => {
+  const Navigate = useNavigate();
   return (
-    <button className="residence-permit-card">
+    <button
+      className="residence-permit-card"
+      onClick={() => {
+        Navigate("/residence-permit");
+      }}
+    >
       <h1> Residence Permit </h1>
       <div className="residence-permit-card-body">
         <div className="residence-permit-card-date">
@@ -26,6 +33,7 @@ const ResidencePermitCard = ({ props }: ResidencePermitCardProps) => {
           </p>
         </div>
         <div className="residence-permit-card-status">
+          Status:{" "}
           <b
             className={
               props.status !== "Rejected" && props.status !== "Approved"

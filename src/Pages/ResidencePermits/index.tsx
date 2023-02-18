@@ -61,7 +61,7 @@ const ResidencePermitsPage = () => {
             .map((residencePermit) => {
               return (
                 <div className="residence-permits-page-box">
-                  <ResidencePermitCard props={residencePermit} />;
+                  <ResidencePermitCard props={residencePermit} />
                 </div>
               )
             })}

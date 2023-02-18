@@ -2,6 +2,7 @@ import "./index.scss";
 import "./../index.scss";
 
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface VisitCardProps {
   props: {
@@ -13,8 +14,14 @@ interface VisitCardProps {
 }
 
 const VisitCard = ({ props }: VisitCardProps) => {
+  const Navigate = useNavigate();
   return (
-    <button className="visit-card">
+    <button
+      className="visit-card"
+      onClick={() => {
+        Navigate("/visit");
+      }}
+    >
       <h1> Visit to the office </h1>
       <div className="visit-card-body">
         <div className="visit-card-date">

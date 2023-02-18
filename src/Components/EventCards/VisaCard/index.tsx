@@ -2,6 +2,7 @@ import "./index.scss";
 import "./../index.scss";
 
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface VisaCardProps {
   props: {
@@ -13,8 +14,14 @@ interface VisaCardProps {
 }
 
 const VisaCard = ({ props }: VisaCardProps) => {
+  const Navigate = useNavigate();
   return (
-    <button className="visa-card">
+    <button
+      className="visa-card"
+      onClick={() => {
+        Navigate("/visa");
+      }}
+    >
       <h1> Visa </h1>
       <div className="visa-card-body">
         <div className="visa-card-date">
