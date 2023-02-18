@@ -195,114 +195,6 @@ const VisitsPage = () => {
       location: "29 Main Street, New York, NY 10001",
       description: "Visit to submit new documents",
     },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "27 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "28 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "29 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "27 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "28 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "29 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "27 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "28 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "29 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "27 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "28 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "29 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "27 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "28 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "29 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "27 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "28 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
-    {
-      date: "2020-12-12",
-      time: "12:00",
-      location: "29 Main Street, New York, NY 10001",
-      description: "Visit to submit new documents",
-    },
   ]);
   const [maxPages, setMaxPages] = useState(Math.ceil(visits.length / 6));
   const [currentPage, setCurrentPage] = useState(1);
@@ -331,7 +223,9 @@ const VisitsPage = () => {
   };
   const onSubmit = (values: visitInterface) => {
     console.log(visits, "before");
+    console.log(values, "values");
     setVisits((prevVisits) => [...prevVisits, values]);
+    setMaxPages(Math.ceil(visits.length / 6));
     console.log(visits, "after");
     setOpenedNewVisit(false);
   };
