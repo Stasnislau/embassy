@@ -49,7 +49,7 @@ const VisaDropdownMenu = () => {
               Navigate("/visa-application");
             }}
           >
-            Apply for the Visa
+            Apply for Visa
           </button>
           <button
             className="visa-dropdown-menu-item"
@@ -57,7 +57,7 @@ const VisaDropdownMenu = () => {
               Navigate("/visa-info");
             }}
           >
-            About the Visa
+            About Visa
           </button>
         </div>
       )}

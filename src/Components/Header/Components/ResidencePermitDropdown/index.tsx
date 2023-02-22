@@ -49,7 +49,7 @@ const ResidencePermitDropdown = () => {
               Navigate("/residence-application");
             }}
           >
-            Apply for the permit
+            Apply for permit
           </button>
           <button
             className="residence-permit-menu-item"
@@ -57,7 +57,7 @@ const ResidencePermitDropdown = () => {
               Navigate("/residence-info");
             }}
           >
-            About the Permits
+            About Permits
           </button>
         </div>
       )}

@@ -240,7 +240,7 @@ const Dashboard = () => {
       <div className="dashboard-body">
         <div className="dashboard-boxes-container">
           {visa.status && currentPage === 1 ? (
-            <div className="dashboard-box">
+            <div className="dashboard-box dashboard-box-highlight">
               <VisaCard props={visa} />
             </div>
           ) : null}

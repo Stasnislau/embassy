@@ -32,6 +32,11 @@
     text-align: center;
     cursor: pointer;
   }
+  .dashboard-box-highlight {
+    background-color: #fff;
+    opacity: 1.5;
+    border: 1px solid #00ff0d;
+  }
   .dashboard-box:hover {
     background-color: #eee;
     transition: 0.2s;
