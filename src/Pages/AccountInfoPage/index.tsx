@@ -9,8 +9,24 @@ import Header from "../../Components/Header";
 import TextError from "../../Components/TextError";
 import { useNavigate } from "react-router-dom";
 
+interface AccountInterface {
+  id: number;
+  name: string;
+  surname: string;
+  email: string;
+  dateOfBirth: string;
+  phoneNumber: string;
+  address: string;
+  city: string;
+  country: string;
+  zipCode: string;
+  passportNumber: string;
+  passportExpirationDate: string;
+  passportIssuingCountry: string;
+}
+
 const AccountInfoPage = (accountId: number) => {
-  const [account, setAccount] = useState({
+  const [account, setAccount] = useState<AccountInterface>({
     id: 1,
     name: "John",
     surname: "Doe",
