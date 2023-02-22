@@ -10,8 +10,8 @@ import TextError from "../../Components/TextError";
 import { useNavigate } from "react-router-dom";
 
 interface VisaValues {
-  firstName: string;
-  lastName: string;
+  name: string;
+  surname: string;
   email: string;
   phone: string;
   address: string;
@@ -32,8 +32,8 @@ interface VisaValues {
 
 const VisaApplication = () => {
   const initialValues: VisaValues = {
-    firstName: "",
-    lastName: "",
+    name: "",
+    surname: "",
     email: "",
     phone: "",
     address: "",
@@ -52,11 +52,11 @@ const VisaApplication = () => {
     checkbox_conditions: false,
   };
   const validationSchema = Yup.object({
-    firstName: Yup.string()
+    name: Yup.string()
       .required("Required")
       .min(1, "Name is too short")
       .max(20, "Name is too long"),
-    lastName: Yup.string()
+    surname: Yup.string()
       .required("Required")
       .min(1, "Surname is too short")
       .max(20, "Surname is too long"),
@@ -103,24 +103,24 @@ const VisaApplication = () => {
             <div className="inputs-container">
               <div className="several-fields-container">
                 <div className="form-control">
-                  <label htmlFor="firstName">First Name</label>
+                  <label htmlFor="firstName">Name</label>
                   <Field
-                    id="firstName"
-                    name="firstName"
+                    id="name"
+                    name="name"
                     type="text"
                     className="first-name-field input-field"
                   />
                   <ErrorMessage name="firstName" component={TextError} />
                 </div>
                 <div className="form-control">
-                  <label htmlFor="lastName">Last Name</label>
+                  <label htmlFor="surname">Surname</label>
                   <Field
-                    id="lastName"
-                    name="lastName"
+                    id="surname"
+                    name="surname"
                     type="text"
                     className="last-name-field input-field"
                   />
-                  <ErrorMessage name="lastName" component={TextError} />
+                  <ErrorMessage name="surname" component={TextError} />
                 </div>
               </div>
               <div className="several-fields-container">
