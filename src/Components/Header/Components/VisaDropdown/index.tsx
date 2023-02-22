@@ -37,11 +37,12 @@ const VisaDropdownMenu = () => {
           <button
             className="visa-dropdown-menu-item"
             onClick={() => {
-              Navigate("/visa-info");
+              Navigate("/visas");
             }}
           >
-            About the Visa
+            My visa cases
           </button>
+
           <button
             className="visa-dropdown-menu-item"
             onClick={() => {
@@ -53,10 +54,10 @@ const VisaDropdownMenu = () => {
           <button
             className="visa-dropdown-menu-item"
             onClick={() => {
-              Navigate("/visas");
+              Navigate("/visa-info");
             }}
           >
-            My visa cases
+            About the Visa
           </button>
         </div>
       )}

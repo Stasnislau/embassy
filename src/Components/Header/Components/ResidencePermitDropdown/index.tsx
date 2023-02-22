@@ -37,11 +37,12 @@ const ResidencePermitDropdown = () => {
           <button
             className="residence-permit-menu-item"
             onClick={() => {
-              Navigate("/residence-info");
+              Navigate("/residence-permits");
             }}
           >
-            About the Permits
+            My permit cases
           </button>
+
           <button
             className="residence-permit-menu-item"
             onClick={() => {
@@ -53,10 +54,10 @@ const ResidencePermitDropdown = () => {
           <button
             className="residence-permit-menu-item"
             onClick={() => {
-              Navigate("/residence-permits");
+              Navigate("/residence-info");
             }}
           >
-            My permit cases
+            About the Permits
           </button>
         </div>
       )}

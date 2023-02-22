@@ -23,14 +23,13 @@
     .ministry-logo {
       width: 100px;
       height: 100px;
-      margin-right: 20px;
-      margin-top: 10px;
-      margin: 0 20px 0 0;
+      
+      
     }
     .ministry-text {
       font-size: 30px;
       font-weight: 600;
-      font-family: "Garamond";
+      font-family: "Trebuchet MS", sans-serif;
       color: #000;
     }
   }
@@ -43,5 +42,11 @@
   .dropdown-menu-button:hover{
     background-color: #d4edff;
     transition: 0.2s;
+  }
+  .header-button{
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
   }
 }
