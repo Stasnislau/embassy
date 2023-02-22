@@ -10,8 +10,8 @@ import TextError from "../../Components/TextError";
 import { useNavigate } from "react-router-dom";
 
 interface ResidencePermitValues {
-  firstName: string;
-  lastName: string;
+  name: string;
+  surname: string;
   email: string;
   phoneNumber: string;
   birthDate: string;
@@ -33,8 +33,8 @@ interface ResidencePermitValues {
 const ResidencePermitApplication = () => {
   const navigate = useNavigate();
   const initialValues: ResidencePermitValues = {
-    firstName: "",
-    lastName: "",
+    name: "",
+    surname: "",
     email: "",
     phoneNumber: "",
     birthDate: "",
@@ -53,8 +53,8 @@ const ResidencePermitApplication = () => {
     checkbox_terms: false,
   };
   const validationSchema = Yup.object({
-    firstName: Yup.string().required("Required"),
-    lastName: Yup.string().required("Required"),
+    name: Yup.string().required("Required"),
+    surname: Yup.string().required("Required"),
     email: Yup.string().email("Invalid email format").required("Required"),
     phoneNumber: Yup.string()
       .required("Required")
@@ -103,24 +103,24 @@ const ResidencePermitApplication = () => {
             <div className="input-container">
               <div className="several-fields-container">
                 <div className="form-control">
-                  <label htmlFor="firstName">First Name</label>
+                  <label htmlFor="firstName">name</label>
                   <Field
                     type="text"
-                    id="firstName"
-                    name="firstName"
+                    id="name"
+                    name="name"
                     className="input-field"
                   />
-                  <ErrorMessage name="firstName" component={TextError} />
+                  <ErrorMessage name="name" component={TextError} />
                 </div>
                 <div className="form-control">
-                  <label htmlFor="lastName">Last Name</label>
+                  <label htmlFor="surname">Surname</label>
                   <Field
                     type="text"
-                    id="lastName"
-                    name="lastName"
+                    id="surname"
+                    name="surname"
                     className="input-field"
                   />
-                  <ErrorMessage name="lastName" component={TextError} />
+                  <ErrorMessage name="surname" component={TextError} />
                 </div>
               </div>
               <div className="several-fields-container">
